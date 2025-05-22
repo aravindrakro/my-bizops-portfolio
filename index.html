@@ -39,7 +39,7 @@
         }
 
         .nav-link i {
-            font-size: 1.1rem; /* Adjust icon size */
+            font-size: 1.4rem; /* Increased from 1.1rem to make icons more visible */
             margin-right: 0; /* No initial margin */
             transition: margin-right 0.3s ease-in-out;
         }
@@ -166,7 +166,7 @@
         }
 
         /* Sticky Header Profile Picture and Name */
-        #header-profile-pic, #header-name-text {
+        #header-profile-pic, #header-name-container {
             opacity: 0;
             transform: translateY(-10px); /* Initial state for appearance */
             transition: opacity 0.3s ease-out, transform 0.3s ease-out;
@@ -174,25 +174,39 @@
         }
         #header-profile-pic {
             width: 36px; height: 36px;
-            margin-left: 1rem;
+            margin-right: 0.5rem; /* Space between photo and name */
             flex-shrink: 0; /* Prevent shrinking when text is long */
         }
-        #header-name-text {
+        #header-name-container {
             font-size: 1.5rem; /* Base size, will be dynamically scaled */
-            margin-left: 0.5rem;
-            white-space: nowrap; /* Prevent wrapping */
+            line-height: 1.1; /* Adjust line height for 2 lines */
+            white-space: normal; /* Allow name to wrap */
             overflow: hidden;
             text-overflow: ellipsis;
+            display: flex; /* Use flex to align first/last name */
+            flex-direction: column; /* Stack first and last name vertically */
         }
+        #header-name-container .first-name,
+        #header-name-container .last-name {
+            display: block; /* Ensure each part is on its own line */
+        }
+        #header-name-container .last-name {
+            font-size: 0.9em; /* Slightly smaller for last name */
+            color: #4b5563; /* Slightly muted color for last name */
+        }
+
 
         /* Adjust font size for header name on small screens */
         @media (max-width: 767px) { /* For small mobile screens */
-            #header-name-text {
+            #header-name-container {
                 font-size: 1.1rem; /* Smaller font for phones */
+            }
+            #header-name-container .last-name {
+                font-size: 0.8em; /* Adjust for small screens */
             }
         }
 
-        #header-profile-pic.show, #header-name-text.show {
+        #header-profile-pic.show, #header-name-container.show {
             opacity: 1;
             transform: translateY(0);
             pointer-events: auto; /* Enable clicks when visible */
@@ -217,6 +231,7 @@
             transition: opacity 0.7s ease-out, transform 0.7s ease-out; /* Slower transition */
             position: relative; /* Ensure z-index works and for animations */
             z-index: 1; /* Above background elements if any, below sticky header */
+            will-change: transform, opacity; /* Hint to browser for smoother animations */
         }
 
         .animate-on-scroll.is-visible {
@@ -241,8 +256,11 @@
     <header class="bg-white shadow-md sticky top-0 z-50">
         <nav class="container mx-auto px-6 py-3 flex justify-between items-center relative">
             <div class="flex items-center">
-                <a href="#" class="text-2xl font-bold text-gray-800" id="header-name-text">Aravind Agoramurthi</a>
                 <img id="header-profile-pic" src="https://raw.githubusercontent.com/aravindrakro/my-bizops-portfolio/main/aravind-profile.jpg" alt="Aravind Agoramurthi" class="rounded-full object-cover">
+                <a href="#" class="font-bold text-gray-800" id="header-name-container">
+                    <span class="first-name">Aravind</span>
+                    <span class="last-name">Agoramurthi</span>
+                </a>
             </div>
             <div class="flex flex-wrap justify-end gap-1 sm:gap-2 md:gap-4"> <a href="#about" class="nav-link">
                     <i class="fas fa-user"></i>
@@ -272,6 +290,9 @@
             <div id="nav-indicator"></div>
         </nav>
     </header>
+
+    <div id="mobile-topic-pane" class="fixed top-16 left-0 w-full bg-white shadow-md z-40 py-2 px-4 text-gray-800 font-semibold text-lg md:hidden">
+        Current Section: <span id="current-topic-display">About</span> </div>
 
     <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-8"> <section id="about" class="py-12 hero-bg-pattern rounded-lg shadow-inner text-center">
             <div id="animated-background">
@@ -476,6 +497,7 @@
         const navLinks = document.querySelectorAll('.nav-link');
         const sections = document.querySelectorAll('main section');
         const navIndicator = document.getElementById('nav-indicator');
+        const mobileTopicDisplay = document.getElementById('current-topic-display');
 
         // Initial positions for morphing effect (run once)
         let heroProfilePicInitialRect, heroNameInitialRect;
@@ -523,7 +545,7 @@
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
                 // Offset by header height to account for sticky header covering section top
-                if (pageYOffset >= sectionTop - (headerHeight + 50)) {
+                if (pageYOffset >= sectionTop - (headerHeight + 50)) { // Adjusted to use headerHeight
                     current = section.getAttribute('id');
                 }
             });
@@ -538,14 +560,24 @@
 
             updateNavIndicator(activeNavLink);
 
+            // Update mobile topic pane
+            if (mobileTopicDisplay && activeNavLink) {
+                const topicText = activeNavLink.querySelector('.nav-text').textContent;
+                mobileTopicDisplay.textContent = topicText;
+            } else if (mobileTopicDisplay) {
+                // Default or clear if no active section found (e.g., at very top or bottom of page)
+                mobileTopicDisplay.textContent = 'About'; // Default to "About"
+            }
+
+
             // Morphing Header Logic
             const heroProfilePic = document.getElementById('hero-profile-pic');
             const heroName = document.getElementById('hero-name');
             const headerProfilePic = document.getElementById('header-profile-pic');
-            const headerNameText = document.getElementById('header-name-text');
+            const headerNameContainer = document.getElementById('header-name-container'); // Changed to container
             const aboutSection = document.getElementById('about');
 
-            if (heroProfilePic && heroName && headerProfilePic && headerNameText && aboutSection && heroProfilePicInitialRect) {
+            if (heroProfilePic && heroName && headerProfilePic && headerNameContainer && aboutSection && heroProfilePicInitialRect) {
                 const scrollY = window.pageYOffset;
                 // Define the scroll range over which the morphing effect happens
                 const morphStart = aboutSection.offsetTop + (heroProfilePicInitialRect.height / 2); // Start when image center aligns with header top
@@ -565,10 +597,10 @@
                 // Header elements appearing based on progress
                 if (scrollProgress > 0.1) { // Start appearing slightly after hero elements start moving
                     headerProfilePic.classList.add('show');
-                    headerNameText.classList.add('show');
+                    headerNameContainer.classList.add('show'); // Changed to container
                 } else {
                     headerProfilePic.classList.remove('show');
-                    headerNameText.classList.remove('show');
+                    headerNameContainer.classList.remove('show'); // Changed to container
                 }
             }
 
