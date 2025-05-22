@@ -6,10 +6,15 @@
     <title>Aravind Agoramurthi - Business Operations Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZsQyAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         html { scroll-behavior: smooth; }
-        body { font-family: 'Inter', sans-serif; background-color: #f9fafb; /* Gray-50 */ color: #1f2937; /* Gray-800 */ }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f9fafb; /* Gray-50 */
+            color: #1f2937; /* Gray-800 */
+            overflow-wrap: break-word; /* General safeguard for text overflow */
+        }
         
         /* Navigation Links - Icon & Text Expansion */
         .nav-link {
@@ -154,9 +159,9 @@
             z-index: 1;
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 767px) { /* Hide shapes on smaller screens to avoid clutter */
             .shape {
-                display: none; /* Hide shapes on smaller screens to avoid clutter */
+                display: none;
             }
         }
 
@@ -178,6 +183,13 @@
             white-space: nowrap; /* Prevent wrapping */
             overflow: hidden;
             text-overflow: ellipsis;
+        }
+
+        /* Adjust font size for header name on small screens */
+        @media (max-width: 767px) { /* For small mobile screens */
+            #header-name-text {
+                font-size: 1.1rem; /* Smaller font for phones */
+            }
         }
 
         #header-profile-pic.show, #header-name-text.show {
@@ -232,7 +244,7 @@
                 <a href="#" class="text-2xl font-bold text-gray-800" id="header-name-text">Aravind Agoramurthi</a>
                 <img id="header-profile-pic" src="https://raw.githubusercontent.com/aravindrakro/my-bizops-portfolio/main/aravind-profile.jpg" alt="Aravind Agoramurthi" class="rounded-full object-cover">
             </div>
-            <div class="flex flex-nowrap overflow-x-auto space-x-1 sm:space-x-2 md:space-x-4"> <a href="#about" class="nav-link">
+            <div class="flex flex-wrap justify-end gap-1 sm:gap-2 md:gap-4"> <a href="#about" class="nav-link">
                     <i class="fas fa-user"></i>
                     <span class="nav-text">About</span>
                 </a>
@@ -460,7 +472,7 @@
     <script>
         document.getElementById('currentYear').textContent = new Date().getFullYear();
 
-        const navLinksContainer = document.querySelector('nav .flex-nowrap'); // Adjusted selector for flex container
+        const navLinksContainer = document.querySelector('nav .flex-wrap'); // Adjusted selector for flex container
         const navLinks = document.querySelectorAll('.nav-link');
         const sections = document.querySelectorAll('main section');
         const navIndicator = document.getElementById('nav-indicator');
