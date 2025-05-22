@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aravind Agoramurthi - Business Operations Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Visualization & Content Choices:
+        - Introduction: HTML text block. Goal: Inform. Interaction: None. Justification: Standard welcome.
+        - Key Skills: HTML styled list/tags. Goal: Inform. Interaction: Hover effects. Justification: Clear, scannable list.
+        - Professional Experience: Cards (HTML/Tailwind). Goal: Inform. Interaction: None beyond readability. Justification: Clear separation of roles.
+        - Projects & Initiatives: Cards (HTML/Tailwind). Goal: Inform, Showcase impact. One project ("Power BI Dashboards") will feature a Chart.js donut chart to visualize "cutting down reporting time by 40%". Another project ("CRM Workflow Optimization") will feature a Chart.js donut chart to visualize "reducing lead processing time by 30%". Goal: Visualize achievement. Interaction: Chart tooltip. Justification: Makes quantitative results more engaging.
+        - Education: HTML styled list. Goal: Inform. Interaction: None. Justification: Standard presentation.
+        - Contact: HTML list with mailto links. Goal: Enable contact. Interaction: Click links. Justification: Standard.
+        - CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. All charts via Chart.js (Canvas). -->
+    <style>
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; background-color: #f3f4f6; /* Light Gray */ color: #2d3748; /* Dark Slate Gray */ }
+        .nav-link { transition: color 0.3s ease; }
+        .nav-link:hover, .nav-link.active { color: #14b8a6; /* Soft Teal */ }
+        .section-title { border-bottom: 2px solid #14b8a6; /* Soft Teal */ padding-bottom: 0.5rem; }
+        .card { background-color: white; border-radius: 0.5rem; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05); }
+        .skill-tag { background-color: #ccfbf1; /* Lighter Teal for tags */ color: #0f766e; /* Darker Teal text for tags */ }
+        .chart-container { position: relative; width: 100%; max-width: 300px; margin-left: auto; margin-right: auto; height: 200px; max-height: 250px; }
+        @media (min-width: 768px) { .chart-container { height: 250px; max-width: 350px;} }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-gray-800">Aravind Agoramurthi</a>
+            <div class="space-x-4">
+                <a href="#about" class="nav-link text-gray-600">About</a>
+                <a href="#skills" class="nav-link text-gray-600">Skills</a>
+                <a href="#experience" class="nav-link text-gray-600">Experience</a>
+                <a href="#projects" class="nav-link text-gray-600">Projects</a>
+                <a href="#education" class="nav-link text-gray-600">Education</a>
+                <a href="#contact" class="nav-link text-gray-600">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-6 py-8">
+
+        <section id="about" class="py-12">
+            <h2 class="text-3xl font-bold mb-6 section-title">Summary</h2>
+            <div class="bg-white p-8 rounded-lg shadow-lg">
+                <p class="text-lg leading-relaxed">
+                    Business Operations Specialist with 2+ years of experience in driving efficient sales and business operations. Specializes in supporting core sales and revenue operations processes, ensuring seamless execution, strategic alignment, and process consistency across teams. Focuses on CRM optimization and operational visibility, streamlining workflows, and enhancing team productivity. Brings a deep understanding of revenue workflows, sales enablement, and cross-functional collaboration. Known for enabling data-driven decisions and continuous improvement, with a focus on building scalable, insight-led, and performance-oriented operations.
+                </p>
+            </div>
+        </section>
+
+        <section id="skills" class="py-12 bg-gray-50">
+            <h2 class="text-3xl font-bold mb-8 section-title text-center">Technical Skills</h2>
+             <div class="bg-white p-8 rounded-lg shadow-lg">
+                <p class="text-center text-gray-700 mb-8">My proficiency spans across various technical domains crucial for effective business operations, data analysis, and project management.</p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <span class="skill-tag text-sm font-medium px-4 py-2 rounded-full">HubSpot CRM</span>
+                    <span class="skill-tag text-sm font-medium px-4 py-2 rounded-full">Microsoft Dynamics 365</span>
+                    <span class="skill-tag text-sm font-medium px-4 py-2 rounded-full">Salesforce (Pursuing)</span>
+                    <span class="skill-tag text-sm font-medium px-4 py-2 rounded-full">DevRev</span>
+                    <span class="skill-tag text-sm font-medium px-4 py-2 rounded-full">SendGrid</span>
+                    <span class="skill-tag text-sm font-medium px-4 py-2 rounded-full">Outplay</span>
+                    <span class="skill-tag text-sm font-medium px-4 py-2 rounded-full">Power BI</span>
+                    <span class="skill-tag text-sm font-medium px-4 py-2 rounded-full">Excel (Pivot Tables, Macros)</span>
+                    <span class="skill-tag text-sm font-medium px-4 py-2 rounded-full">Looker Studio</span>
+                    <span class="skill-tag text-sm font-medium px-4 py-2 rounded-full">BigQuery</span>
+                    <span class="skill-tag text-sm font-medium px-4 py-2 rounded-full">SQL (Basics)</span>
+                    <span class="skill-tag text-sm font-medium px-4 py-2 rounded-full">6sense</span>
+                    <span class="skill-tag text-sm font-medium px-4 py-2 rounded-full">ZoomInfo</span>
+                    <span class="skill-tag text-sm font-medium px-4 py-2 rounded-full">LinkedIn Sales Navigator</span>
+                    <span class="skill-tag text-sm font-medium px-4 py-2 rounded-full">Infotelligent</span>
+                    <span class="skill-tag text-sm font-medium px-4 py-2 rounded-full">Apollo</span>
+                    <span class="skill-tag text-sm font-medium px-4 py-2 rounded-full">Kendo</span>
+                    <span class="skill-tag text-sm font-medium px-4 py-2 rounded-full">Microsoft Project</span>
+                    <span class="skill-tag text-sm font-medium px-4 py-2 rounded-full">Airtable</span>
+                    <span class="skill-tag text-sm font-medium px-4 py-2 rounded-full">Microsoft Visio</span>
+                    <span class="skill-tag text-sm font-medium px-4 py-2 rounded-full">PowerPoint</span>
+                    <span class="skill-tag text-sm font-medium px-4 py-2 rounded-full">Figma</span>
+                    <span class="skill-tag text-sm font-medium px-4 py-2 rounded-full">Canva</span>
+                    <span class="skill-tag text-sm font-medium px-4 py-2 rounded-full">Photoshop</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="py-12">
+            <h2 class="text-3xl font-bold mb-8 section-title text-center">Professional Experience</h2>
+            <div class="bg-white p-8 rounded-lg shadow-lg">
+                <p class="text-center text-gray-700 mb-8">Throughout my career, I've held key roles where I've contributed to operational excellence and strategic growth. Below are highlights of my professional journey and accomplishments.</p>
+                <div class="space-y-8">
+                    <div class="card p-6">
+                        <h3 class="text-xl font-semibold text-teal-600">Business Operations - Executive</h3>
+                        <p class="text-gray-600 italic">Korcomptenz Inc | Jan 2025 – Present</p>
+                        <ul class="list-disc list-inside mt-4 space-y-2 text-gray-700">
+                            <li>Streamlined business processes by optimizing workflows in HubSpot and Microsoft Dynamics 365, reducing data entry errors by 25% and enhancing lead management efficiency.</li>
+                            <li>Led training sessions for over 10 team members on HubSpot CRM, boosting CRM adoption by 30% and ensuring uniform usage across different departments.</li>
+                            <li>Developed over 15 Power BI dashboards, cutting down reporting time by 40% and empowering leadership with timely, actionable insights.</li>
+                            <li>Designed and implemented comprehensive SOPs for sales, marketing, and lead generation activities, ensuring consistency, scalability, and operational smoothness.</li>
+                            <li>Utilized ZoomInfo to pinpoint 500+ high-potential clients, driving a 20% increase in lead conversion and optimizing the sales pipeline.</li>
+                            <li>Conducted thorough industry research to refine sales strategies, identify emerging trends, and unlock new business development opportunities.</li>
+                            <li>Crafted persuasive proposals and visually appealing presentations with PowerPoint, Canva, and Figma, enhancing client engagement and business proposals.</li>
+                            <li>Leveraged Apollo and LinkedIn Sales Navigator to improve marketing outreach, streamline lead nurturing processes, and enhance overall operational efficiency.</li>
+                        </ul>
+                    </div>
+                    <div class="card p-6">
+                        <h3 class="text-xl font-semibold text-teal-600">Sales Operations Trainee</h3>
+                        <p class="text-gray-600 italic">Korcomptenz Inc | Aug 2023 – Dec 2024</p>
+                        <ul class="list-disc list-inside mt-4 space-y-2 text-gray-700">
+                            <li>Spearheaded the optimization and maintenance of CRM systems (HubSpot and Microsoft Dynamics 365), ensuring seamless integration, accurate data tracking, and improved lead conversion rates.</li>
+                            <li>Streamlined sales processes by automating workflows within HubSpot, reducing manual tasks and enhancing lead tracking efficiency.</li>
+                            <li>Developed custom reports and dashboards using Power BI, enabling leadership to make data-driven decisions and improving the overall visibility of sales performance metrics.</li>
+                            <li>Worked closely with the sales, marketing, and finance teams to align sales strategies with business objectives, improving communication, coordination, and operational efficiency.</li>
+                            <li>Managed the sales pipeline and forecasting process, ensuring accurate tracking of leads and opportunities and contributing to strategic decision-making for sales targets.</li>
+                            <li>Provided ongoing training and support to the sales team on CRM usage, sales processes, and tools, driving greater adoption and improving overall sales performance across the team.</li>
+                        </ul>
+                    </div>
+                    <div class="card p-6">
+                        <h3 class="text-xl font-semibold text-teal-600">Strategic Operations - Intern</h3>
+                        <p class="text-gray-600 italic">DevRev | Jun 2022 – Feb 2023</p>
+                        <ul class="list-disc list-inside mt-4 space-y-2 text-gray-700">
+                            <li>Analyzed 10,000+ data points using Looker Studio & Excel, generating insights that improved business strategy alignment by 20%.</li>
+                            <li>Managed CRM workflows, reducing lead processing time by 30% and improving customer engagement tracking.</li>
+                            <li>Proficient in managing multiple tools effectively, handling administrative tasks, and maintaining comprehensive documentation.</li>
+                            <li>Applied SEO techniques and data reporting for website performance and decision-making.</li>
+                            <li>Thrives in multicultural environments and excels in collaborating effectively with diverse teams.</li>
+                            <li>Proficient in creating Pivot tables for data analysis and visualization.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="py-12 bg-gray-50">
+            <h2 class="text-3xl font-bold mb-8 section-title text-center">Key Projects & Initiatives</h2>
+            <div class="bg-white p-8 rounded-lg shadow-lg">
+                <p class="text-center text-gray-700 mb-8">I have led and contributed to various projects aimed at enhancing operational capabilities and achieving strategic objectives. Here are some key examples with quantifiable impacts:</p>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="card p-6">
+                        <h3 class="text-xl font-semibold text-teal-600">Power BI Dashboards Development</h3>
+                        <div class="mt-4 space-y-2 text-gray-700">
+                            <p><strong>Objective:</strong> To develop comprehensive Power BI dashboards to provide timely and actionable insights to leadership.</p>
+                            <p><strong>My Role:</strong> Developer and Analyst, responsible for data extraction, dashboard design, and implementation.</p>
+                            <p><strong>Actions Taken:</strong> Identified key performance indicators, connected to various data sources, designed interactive visualizations, and deployed dashboards for leadership access.</p>
+                            <p><strong>Outcome/Impact:</strong> Developed over 15 Power BI dashboards, cutting down reporting time by 40% and empowering leadership with timely, actionable insights.</p>
+                            <div class="chart-container mt-4">
+                                <canvas id="reportingTimeChart"></canvas>
+                            </div>
+                            <p class="mt-2"><strong>Technologies/Tools Used:</strong> Power BI, SQL, Excel.</p>
+                        </div>
+                    </div>
+                    <div class="card p-6">
+                        <h3 class="text-xl font-semibold text-teal-600">CRM Workflow Optimization</h3>
+                         <div class="mt-4 space-y-2 text-gray-700">
+                            <p><strong>Objective:</strong> To optimize CRM workflows to reduce lead processing time and improve customer engagement tracking.</p>
+                            <p><strong>My Role:</strong> Operations Specialist, responsible for analyzing existing workflows, identifying bottlenecks, and implementing improvements.</p>
+                            <p><strong>Actions Taken:</strong> Mapped current CRM processes, identified areas for automation, configured HubSpot workflows, and trained relevant teams on new procedures.</p>
+                            <p><strong>Outcome/Impact:</strong> Managed CRM workflows, reducing lead processing time by 30% and improving customer engagement tracking.</p>
+                            <div class="chart-container mt-4">
+                                <canvas id="leadProcessingChart"></canvas>
+                            </div>
+                            <p class="mt-2"><strong>Technologies/Tools Used:</strong> HubSpot CRM, Microsoft Dynamics 365, Zapier.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="education" class="py-12">
+            <h2 class="text-3xl font-bold mb-8 section-title text-center">Education & Certifications</h2>
+            <div class="bg-white p-8 rounded-lg shadow-lg">
+                <p class="text-center text-gray-700 mb-8">My academic background and continuous learning through certifications provide a strong foundation for my expertise in business operations.</p>
+                <div class="space-y-6">
+                    <div class="card p-6">
+                        <h3 class="text-xl font-semibold text-teal-600">MBA (Business Analytics and Operations)</h3>
+                        <p class="text-gray-600 italic">CGPA - 9.01 | SRM Institute of Science and Technology, Chennai | 2021 – 2023</p>
+                    </div>
+                    <div class="card p-6">
+                        <h3 class="text-xl font-semibold text-teal-600">B.E. (Mechanical Engineering)</h3>
+                        <p class="text-gray-600 italic">CGPA - 7.0 | Panimalar Engineering College, Chennai | 2016 – 2020</p>
+                    </div>
+                     <div class="card p-6">
+                        <h3 class="text-xl font-semibold text-teal-600">Certifications</h3>
+                        <ul class="list-disc list-inside mt-4 space-y-1 text-gray-700">
+                            <li>HubSpot Sales Software Certification</li>
+                            <li>Salesforce CRM (Pursuing) - Salesforce</li>
+                            <li>HubSpot Workflow Automation - HubSpot</li>
+                            <li>Analyzing & Visualizing Data in Looker Google</li>
+                            <li>IBM Data Fundamentals - IBM</li>
+                            <li>MySQL Basics - Oracle</li>
+                            <li>Zapier Automation Fundamentals - Zapier</li>
+                            <li>Google Generative AI (LLM) & Basics of Prompt Design - Google</li>
+                            <li>Agile Foundations - Project Management Institute (PMI), NASBA, IIBA</li>
+                            <li>Project Management Foundations - PMI</li>
+                            <li>Microsoft Projects Certification - PIM</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-12 bg-gray-50">
+            <h2 class="text-3xl font-bold mb-8 section-title text-center">Contact Information</h2>
+            <div class="bg-white p-8 rounded-lg shadow-lg max-w-lg mx-auto">
+                <p class="text-center text-gray-700 mb-6">I'm always open to discussing new opportunities and collaborations. Feel free to reach out!</p>
+                <ul class="space-y-3 text-center">
+                    <li><strong>Email:</strong> <a href="mailto:a.aravindkkl@gmail.com" class="text-teal-600 hover:text-teal-800">a.aravindkkl@gmail.com</a></li>
+                    <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/aravind-agoramurthi/" target="_blank" class="text-teal-600 hover:text-teal-800">linkedin.com/in/aravind-agoramurthi/</a></li>
+                    <li><strong>Phone:</strong> <a href="tel:+919944864090" class="text-teal-600 hover:text-teal-800">+919944864090</a></li>
+                    <li><strong>Location:</strong> Chennai, India</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white text-center py-6">
+        <p>&copy; <span id="currentYear"></span> Aravind Agoramurthi. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        const navLinks = document.querySelectorAll('.nav-link');
+        const sections = document.querySelectorAll('main section');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 60) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Chart for Power BI Dashboards Development (40% reduction)
+        const reportingTimeCtx = document.getElementById('reportingTimeChart').getContext('2d');
+        new Chart(reportingTimeCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Time Reduced', 'Original Time'],
+                datasets: [{
+                    label: 'Reporting Time Reduction',
+                    data: [40, 60],
+                    backgroundColor: [
+                        '#14b8a6', // Soft Teal
+                        '#e0f2f1'  // Lighter Teal
+                    ],
+                    borderColor: [
+                        '#0f766e', // Darker Teal
+                        '#a7f3d0'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                let label = context.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                if (context.parsed !== null) {
+                                    label += context.parsed + '%';
+                                }
+                                return label;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        // Chart for CRM Workflow Optimization (30% reduction)
+        const leadProcessingCtx = document.getElementById('leadProcessingChart').getContext('2d');
+        new Chart(leadProcessingCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Time Reduced', 'Original Time'],
+                datasets: [{
+                    label: 'Lead Processing Time Reduction',
+                    data: [30, 70],
+                    backgroundColor: [
+                        '#14b8a6', // Soft Teal
+                        '#e0f2f1'  // Lighter Teal
+                    ],
+                    borderColor: [
+                        '#0f766e', // Darker Teal
+                        '#a7f3d0'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                let label = context.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                if (context.parsed !== null) {
+                                    label += context.parsed + '%';
+                                }
+                                return label;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>
