@@ -7,18 +7,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- Visualization & Content Choices:
-        - Profile Image: Prominent circular image in the "About" section. Goal: Personalize, build trust. Justification: Standard for personal portfolios.
-        - Hero Section Background: Subtle linear gradient and geometric shape to add modern visual interest.
-        - Moving Shapes: Animated, semi-transparent circles/shapes in the background of the hero section for a dynamic, modern feel. Goal: Enhance visual appeal, create engagement. Interaction: Passive background animation. Justification: Adds subtle motion without distracting from core content, fits professional aesthetic.
-        - Morphing Header Effect: The large profile image and name from the hero section smoothly shrink and move to become the miniature version in the sticky header upon scroll. Goal: Advanced visual appeal, persistent branding. Interaction: Dynamic transformation based on scroll. Justification: Modern, engaging effect.
-        - Scroll-triggered Entrance Animations: Main content blocks (Skills, Experience, etc.) animate with a fade-in-slide-up effect as they enter the viewport. Goal: Visual interest, guides user attention, polished feel. Interaction: One-time animation on scroll. Justification: Improves perceived performance and engagement.
-        - Animated Nav Indicator: A subtle moving shape under the active navigation link to highlight the current section. Goal: Enhanced navigation clarity, visual appeal. Interaction: Dynamic movement based on scroll and active link. Justification: Modern UX pattern for single-page sites.
-        - Key Skills: Grouped by category with distinct, styled tool tags for clarity and visual appeal. Goal: Inform, Organize.
-        - Experience & Projects: Enhanced card designs with refined shadows and subtle hover animations. Key terms/impacts within descriptions are clearly highlighted with a background tint. Charts (Chart.js) match the new color palette. Goal: Inform, Detail, Showcase impact.
-        - CRM Workflow Chart: Replaced doughnut with a horizontal stacked bar chart to show deal progression from 'stagnated' to 'progressing' states before and after automation. Goal: Visually demonstrate process improvement and impact. Justification: Better represents flow and change over time than a pie chart.
-        - General: Clean typography, consistent spacing, and a modern professional color scheme for overall aesthetic improvement.
-        - CONFIRMATION: NO SVG graphics used (except for potential simple CSS shapes/gradients, not inline SVG elements). NO Mermaid JS used. All charts via Chart.js (Canvas). -->
     <style>
         html { scroll-behavior: smooth; }
         body { font-family: 'Inter', sans-serif; background-color: #f9fafb; /* Gray-50 */ color: #1f2937; /* Gray-800 */ }
@@ -244,7 +232,7 @@
                 <a href="#" class="text-2xl font-bold text-gray-800" id="header-name-text">Aravind Agoramurthi</a>
                 <img id="header-profile-pic" src="https://raw.githubusercontent.com/aravindrakro/my-bizops-portfolio/main/aravind-profile.jpg" alt="Aravind Agoramurthi" class="rounded-full object-cover">
             </div>
-            <div class="space-x-1 flex"> <a href="#about" class="nav-link">
+            <div class="flex flex-nowrap overflow-x-auto space-x-1 sm:space-x-2 md:space-x-4"> <a href="#about" class="nav-link">
                     <i class="fas fa-user"></i>
                     <span class="nav-text">About</span>
                 </a>
@@ -273,9 +261,7 @@
         </nav>
     </header>
 
-    <main class="container mx-auto px-6 py-8">
-
-        <section id="about" class="py-12 hero-bg-pattern rounded-lg shadow-inner text-center">
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-8"> <section id="about" class="py-12 hero-bg-pattern rounded-lg shadow-inner text-center">
             <div id="animated-background">
                 <div class="shape shape-1"></div>
                 <div class="shape shape-2"></div>
@@ -284,86 +270,71 @@
                 <div class="shape shape-5"></div>
             </div>
             <div class="mb-6">
-                <img id="hero-profile-pic" src="https://raw.githubusercontent.com/aravindrakro/my-bizops-portfolio/main/aravind-profile.jpg" alt="Aravind Agoramurthi" class="rounded-full w-36 h-36 mx-auto object-cover border-4 border-white shadow-lg">
-            </div>
-            <h2 class="text-4xl font-extrabold mb-6 text-gray-800" id="hero-name">Hello, I'm Aravind Agoramurthi</h2>
-            <div class="bg-white p-8 rounded-lg shadow-lg max-w-3xl mx-auto">
-                <p class="text-lg leading-relaxed text-gray-700">
-                    I am a <span class="font-semibold text-blue-700">Business Operations Specialist</span> with 2+ years of experience in driving efficient sales and business operations. My focus is on <span class="font-semibold text-blue-700">mastering and leveraging CRM platforms for operational visibility</span>, meticulously <span class="font-semibold text-blue-700">streamlining critical workflows</span>, and enhancing team productivity. I bring extensive hands-on experience with CRM systems and a deep understanding of revenue workflows, sales enablement, and cross-functional collaboration. My expertise lies in enabling data-driven decisions, driving continuous improvement, and applying <span class="font-semibold text-blue-700">automation tools</span> to build scalable, insight-led, and performance-oriented operations.
+                <img id="hero-profile-pic" src="https://raw.githubusercontent.com/aravindrakro/my-bizops-portfolio/main/aravind-profile.jpg" alt="Aravind Agoramurthi" class="rounded-full w-32 h-32 md:w-36 md:h-36 mx-auto object-cover border-4 border-white shadow-lg"> </div>
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold mb-6 text-gray-800" id="hero-name">Hello, I'm Aravind Agoramurthi</h2> <div class="bg-white p-6 sm:p-8 rounded-lg shadow-lg max-w-3xl mx-auto"> <p class="text-base sm:text-lg leading-relaxed text-gray-700"> I am a <span class="font-semibold text-blue-700">Business Operations Specialist</span> with 2+ years of experience in driving efficient sales and business operations. My focus is on <span class="font-semibold text-blue-700">mastering and leveraging CRM platforms for operational visibility</span>, meticulously <span class="font-semibold text-blue-700">streamlining critical workflows</span>, and enhancing team productivity. I bring extensive hands-on experience with CRM systems and a deep understanding of revenue workflows, sales enablement, and cross-functional collaboration. My expertise lies in enabling data-driven decisions, driving continuous improvement, and applying <span class="font-semibold text-blue-700">automation tools</span> to build scalable, insight-led, and performance-oriented operations.
                 </p>
             </div>
         </section>
 
-        <section id="skills" class="py-12 bg-white rounded-lg shadow-lg mt-8 animate-on-scroll">
-            <h2 class="text-3xl font-bold mb-8 section-title text-center"><i class="fas fa-tools"></i> My Technical Toolkit</h2>
-             <div class="p-8">
-                <p class="text-center text-gray-700 mb-8">My proficiency spans across various technical domains crucial for effective business operations, data analysis, and project management. I leverage a comprehensive suite of tools to drive efficiency and achieve organizational goals.</p>
-                <div class="space-y-8">
-                    <div>
-                        <h3 class="text-xl font-semibold mb-4 text-blue-700">CRM Platform Mastery & Automation</h3>
-                        <div class="flex flex-wrap gap-3">
-                            <span class="skill-tag px-4 py-2 rounded-full">HubSpot CRM (Platform Mastery, Workflow Automation)</span>
-                            <span class="skill-tag px-4 py-2 rounded-full">Microsoft Dynamics 365 (System Administration)</span>
-                            <span class="skill-tag px-4 py-2 rounded-full">Salesforce (Pursuing)</span>
-                            <span class="skill-tag px-4 py-2 rounded-full">DevRev</span>
-                            <span class="skill-tag px-4 py-2 rounded-full">SendGrid</span>
-                            <span class="skill-tag px-4 py-2 rounded-full">Outplay</span>
-                            <span class="skill-tag px-4 py-2 rounded-full">Zapier (Integration & Automation)</span>
+        <section id="skills" class="py-10 sm:py-12 bg-white rounded-lg shadow-lg mt-8 animate-on-scroll"> <h2 class="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 section-title text-center"><i class="fas fa-tools"></i> My Technical Toolkit</h2> <div class="p-6 sm:p-8"> <p class="text-sm sm:text-base text-center text-gray-700 mb-6 sm:mb-8">My proficiency spans across various technical domains crucial for effective business operations, data analysis, and project management. I leverage a comprehensive suite of tools to drive efficiency and achieve organizational goals.</p> <div class="space-y-6 sm:space-y-8"> <div>
+                        <h3 class="text-lg sm:text-xl font-semibold mb-3 sm:mb-4 text-blue-700">CRM Platform Mastery & Automation</h3> <div class="flex flex-wrap gap-2 sm:gap-3"> <span class="skill-tag px-3 py-1 sm:px-4 sm:py-2 rounded-full text-sm sm:text-base">HubSpot CRM (Platform Mastery, Workflow Automation)</span> <span class="skill-tag px-3 py-1 sm:px-4 sm:py-2 rounded-full text-sm sm:text-base">Microsoft Dynamics 365 (System Administration)</span>
+                            <span class="skill-tag px-3 py-1 sm:px-4 sm:py-2 rounded-full text-sm sm:text-base">Salesforce (Pursuing)</span>
+                            <span class="skill-tag px-3 py-1 sm:px-4 sm:py-2 rounded-full text-sm sm:text-base">DevRev</span>
+                            <span class="skill-tag px-3 py-1 sm:px-4 sm:py-2 rounded-full text-sm sm:text-base">SendGrid</span>
+                            <span class="skill-tag px-3 py-1 sm:px-4 sm:py-2 rounded-full text-sm sm:text-base">Outplay</span>
+                            <span class="skill-tag px-3 py-1 sm:px-4 sm:py-2 rounded-full text-sm sm:text-base">Zapier (Integration & Automation)</span>
                         </div>
                     </div>
                     <div>
-                        <h3 class="text-xl font-semibold mb-4 text-blue-700">Data Analytics & Reporting</h3>
-                        <div class="flex flex-wrap gap-3">
-                            <span class="skill-tag px-4 py-2 rounded-full">Power BI</span>
-                            <span class="skill-tag px-4 py-2 rounded-full">Excel (Pivot Tables, Macros)</span>
-                            <span class="skill-tag px-4 py-2 rounded-full">Looker Studio</span>
-                            <span class="skill-tag px-4 py-2 rounded-full">BigQuery</span>
-                            <span class="skill-tag px-4 py-2 rounded-full">SQL (Basics)</span>
+                        <h3 class="text-lg sm:text-xl font-semibold mb-3 sm:mb-4 text-blue-700">Data Analytics & Reporting</h3>
+                        <div class="flex flex-wrap gap-2 sm:gap-3">
+                            <span class="skill-tag px-3 py-1 sm:px-4 sm:py-2 rounded-full text-sm sm:text-base">Power BI</span>
+                            <span class="skill-tag px-3 py-1 sm:px-4 sm:py-2 rounded-full text-sm sm:text-base">Excel (Pivot Tables, Macros)</span>
+                            <span class="skill-tag px-3 py-1 sm:px-4 sm:py-2 rounded-full text-sm sm:text-base">Looker Studio</span>
+                            <span class="skill-tag px-3 py-1 sm:px-4 sm:py-2 rounded-full text-sm sm:text-base">BigQuery</span>
+                            <span class="skill-tag px-3 py-1 sm:px-4 sm:py-2 rounded-full text-sm sm:text-base">SQL (Basics)</span>
                         </div>
                     </div>
                     <div>
-                        <h3 class="text-xl font-semibold mb-4 text-blue-700">Sales Intelligence & Research</h3>
-                        <div class="flex flex-wrap gap-3">
-                            <span class="skill-tag px-4 py-2 rounded-full">6sense</span>
-                            <span class="skill-tag px-4 py-2 rounded-full">ZoomInfo</span>
-                            <span class="skill-tag px-4 py-2 rounded-full">LinkedIn Sales Navigator</span>
-                            <span class="skill-tag px-4 py-2 rounded-full">Infotelligent</span>
-                            <span class="skill-tag px-4 py-2 rounded-full">Apollo</span>
-                            <span class="skill-tag px-4 py-2 rounded-full">Kendo</span>
+                        <h3 class="text-lg sm:text-xl font-semibold mb-3 sm:mb-4 text-blue-700">Sales Intelligence & Research</h3>
+                        <div class="flex flex-wrap gap-2 sm:gap-3">
+                            <span class="skill-tag px-3 py-1 sm:px-4 sm:py-2 rounded-full text-sm sm:text-base">6sense</span>
+                            <span class="skill-tag px-3 py-1 sm:px-4 sm:py-2 rounded-full text-sm sm:text-base">ZoomInfo</span>
+                            <span class="skill-tag px-3 py-1 sm:px-4 sm:py-2 rounded-full text-sm sm:text-base">LinkedIn Sales Navigator</span>
+                            <span class="skill-tag px-3 py-1 sm:px-4 sm:py-2 rounded-full text-sm sm:text-base">Infotelligent</span>
+                            <span class="skill-tag px-3 py-1 sm:px-4 sm:py-2 rounded-full text-sm sm:text-base">Apollo</span>
+                            <span class="skill-tag px-3 py-1 sm:px-4 sm:py-2 rounded-full text-sm sm:text-base">Kendo</span>
                         </div>
                     </div>
                     <div>
-                        <h3 class="text-xl font-semibold mb-4 text-blue-700">Project Management & Process Improvement</h3>
-                        <div class="flex flex-wrap gap-3">
-                            <span class="skill-tag px-4 py-2 rounded-full">Microsoft Project</span>
-                            <span class="skill-tag px-4 py-2 rounded-full">DevRev</span>
-                            <span class="skill-tag px-4 py-2 rounded-full">Airtable</span>
-                            <span class="skill-tag px-4 py-2 rounded-full">Microsoft Visio</span>
+                        <h3 class="text-lg sm:text-xl font-semibold mb-3 sm:mb-4 text-blue-700">Project Management & Process Improvement</h3>
+                        <div class="flex flex-wrap gap-2 sm:gap-3">
+                            <span class="skill-tag px-3 py-1 sm:px-4 sm:py-2 rounded-full text-sm sm:text-base">Microsoft Project</span>
+                            <span class="skill-tag px-3 py-1 sm:px-4 sm:py-2 rounded-full text-sm sm:text-base">DevRev</span>
+                            <span class="skill-tag px-3 py-1 sm:px-4 sm:py-2 rounded-full text-sm sm:text-base">Airtable</span>
+                            <span class="skill-tag px-3 py-1 sm:px-4 sm:py-2 rounded-full text-sm sm:text-base">Microsoft Visio</span>
                         </div>
                     </div>
                     <div>
-                        <h3 class="text-xl font-semibold mb-4 text-blue-700">Design & Communication</h3>
-                        <div class="flex flex-wrap gap-3">
-                            <span class="skill-tag px-4 py-2 rounded-full">PowerPoint</span>
-                            <span class="skill-tag px-4 py-2 rounded-full">Figma</span>
-                            <span class="skill-tag px-4 py-2 rounded-full">Canva</span>
-                            <span class="skill-tag px-4 py-2 rounded-full">Photoshop</span>
+                        <h3 class="text-lg sm:text-xl font-semibold mb-3 sm:mb-4 text-blue-700">Design & Communication</h3>
+                        <div class="flex flex-wrap gap-2 sm:gap-3">
+                            <span class="skill-tag px-3 py-1 sm:px-4 sm:py-2 rounded-full text-sm sm:text-base">PowerPoint</span>
+                            <span class="skill-tag px-3 py-1 sm:px-4 sm:py-2 rounded-full text-sm sm:text-base">Figma</span>
+                            <span class="skill-tag px-3 py-1 sm:px-4 sm:py-2 rounded-full text-sm sm:text-base">Canva</span>
+                            <span class="skill-tag px-3 py-1 sm:px-4 sm:py-2 rounded-full text-sm sm:text-base">Photoshop</span>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="experience" class="py-12 mt-8 animate-on-scroll">
-            <h2 class="text-3xl font-bold mb-8 section-title text-center"><i class="fas fa-briefcase"></i> Professional Experience</h2>
-            <div class="bg-white p-8 rounded-lg shadow-lg">
-                <p class="text-center text-gray-700 mb-8">Throughout my career, I've held key roles where I've contributed to operational excellence and strategic growth. Below are highlights of my professional journey and accomplishments, emphasizing the tools I utilized.</p>
-                <div class="space-y-8">
-                    <div class="card p-6">
-                        <h3 class="text-xl font-semibold text-blue-600">Business Operations - Executive</h3>
-                        <p class="text-gray-600 italic">Korcomptenz Inc | Jan 2025 - Present</p>
-                        <ul class="list-disc list-inside mt-4 space-y-2 text-gray-700">
-                            <li><span class="tool-highlight">Expertly managed and refined CRM workflows</span> in HubSpot and Microsoft Dynamics 365, significantly <span class="tool-highlight">reducing data entry errors by 25%</span> and enhancing overall lead management efficiency through direct system configuration and strategic process design.</li>
+        <section id="experience" class="py-10 sm:py-12 mt-8 animate-on-scroll">
+            <h2 class="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 section-title text-center"><i class="fas fa-briefcase"></i> Professional Experience</h2>
+            <div class="bg-white p-6 sm:p-8 rounded-lg shadow-lg">
+                <p class="text-sm sm:text-base text-center text-gray-700 mb-6 sm:mb-8">Throughout my career, I've held key roles where I've contributed to operational excellence and strategic growth. Below are highlights of my professional journey and accomplishments, emphasizing the tools I utilized.</p>
+                <div class="space-y-6 sm:space-y-8">
+                    <div class="card p-4 sm:p-6"> <h3 class="text-lg sm:text-xl font-semibold text-blue-600">Business Operations - Executive</h3>
+                        <p class="text-gray-600 italic text-sm sm:text-base">Korcomptenz Inc | Jan 2025 - Present</p> <ul class="list-disc list-inside mt-3 sm:mt-4 space-y-1 sm:space-y-2 text-gray-700 text-sm sm:text-base"> <li><span class="tool-highlight">Expertly managed and refined CRM workflows</span> in HubSpot and Microsoft Dynamics 365, significantly <span class="tool-highlight">reducing data entry errors by 25%</span> and enhancing overall lead management efficiency through direct system configuration and strategic process design.</li>
                             <li><span class="tool-highlight">Led training sessions</span> for over 10 team members on HubSpot CRM, <span class="tool-highlight">boosting CRM adoption by 30%</span> and ensuring uniform usage.</li>
                             <li>Developed over <span class="tool-highlight">15 Power BI dashboards</span>, cutting down reporting time by 40% and empowering leadership with <span class="tool-highlight">actionable insights</span>.</li>
                             <li><span class="tool-highlight">Designed SOPs</span> for sales, marketing, and lead generation activities, ensuring consistency, scalability, and operational smoothness.</li>
@@ -373,10 +344,10 @@
                             <li>Leveraged Apollo and LinkedIn Sales Navigator to improve marketing outreach, <span class="tool-highlight">streamline lead nurturing</span>, and enhance overall operational efficiency.</li>
                         </ul>
                     </div>
-                    <div class="card p-6">
-                        <h3 class="text-xl font-semibold text-blue-600">Sales Operations Trainee</h3>
-                        <p class="text-gray-600 italic">Korcomptenz Inc | Aug 2023 - Dec 2024</p>
-                        <ul class="list-disc list-inside mt-4 space-y-2 text-gray-700">
+                    <div class="card p-4 sm:p-6">
+                        <h3 class="text-lg sm:text-xl font-semibold text-blue-600">Sales Operations Trainee</h3>
+                        <p class="text-gray-600 italic text-sm sm:text-base">Korcomptenz Inc | Aug 2023 - Dec 2024</p>
+                        <ul class="list-disc list-inside mt-3 sm:mt-4 space-y-1 sm:space-y-2 text-gray-700 text-sm sm:text-base">
                             <li><span class="tool-highlight">Spearheaded CRM workflow design and maintenance</span> (HubSpot and Microsoft Dynamics 365), ensuring seamless integration, accurate data tracking, and <span class="tool-highlight">improved lead conversion rates</span>.</li>
                             <li><span class="tool-highlight">Designed and implemented robust automation workflows</span> within HubSpot, drastically <span class="tool-highlight">reducing manual tasks</span> and enhancing lead tracking efficiency. This included conceptualizing and deploying an automated trigger system to identify 'choked' leads (those past the closed stage without engagement), sending proactive alerts to leadership and respective Business Development Managers via email, which significantly improved follow-up rates and pipeline health.</li>
                             <li><span class="tool-highlight">Developed custom reports</span> and dashboards using Power BI, enabling leadership to make <span class="tool-highlight">data-driven decisions</span> and improving overall visibility of sales performance metrics.</li>
@@ -385,10 +356,10 @@
                             <li><span class="tool-highlight">Provided training and support</span> to the sales team on CRM usage and sales processes, driving <span class="tool-highlight">greater adoption and improving performance</span>.</li>
                         </ul>
                     </div>
-                    <div class="card p-6">
-                        <h3 class="text-xl font-semibold text-blue-600">Strategic Operations - Intern</h3>
-                        <p class="text-gray-600 italic">DevRev | Jun 2022 - Feb 2023</p>
-                        <ul class="list-disc list-inside mt-4 space-y-2 text-gray-700">
+                    <div class="card p-4 sm:p-6">
+                        <h3 class="text-lg sm:text-xl font-semibold text-blue-600">Strategic Operations - Intern</h3>
+                        <p class="text-gray-600 italic text-sm sm:text-base">DevRev | Jun 2022 - Feb 2023</p>
+                        <ul class="list-disc list-inside mt-3 sm:mt-4 space-y-1 sm:space-y-2 text-gray-700 text-sm sm:text-base">
                             <li><span class="tool-highlight">Analyzed 10,000+ data points</span> using Looker Studio & Excel, <span class="tool-highlight">generating insights</span> that improved business strategy alignment by 20%.</li>
                             <li><span class="tool-highlight">Managed CRM workflows</span>, <span class="tool-highlight">reducing lead processing time by 30%</span> and improving customer engagement tracking.</li>
                             <li><span class="tool-highlight">Proficient in managing tools</span>, handling administrative tasks, and maintaining comprehensive documentation.</li>
@@ -401,57 +372,56 @@
             </div>
         </section>
 
-        <section id="projects" class="py-12 bg-white rounded-lg shadow-lg mt-8 animate-on-scroll">
-            <h2 class="text-3xl font-bold mb-8 section-title text-center"><i class="fas fa-project-diagram"></i> Key Projects & Initiatives</h2>
-            <div class="p-8">
-                <p class="text-center text-gray-700 mb-8">I have led and contributed to various projects aimed at enhancing operational capabilities and achieving strategic objectives. Here are some key examples with quantifiable impacts:</p>
-                <div class="grid md:grid-cols-2 gap-8">
-                    <div class="card p-6">
-                        <h3 class="text-xl font-semibold text-blue-600">Power BI Dashboards Development</h3>
-                        <div class="mt-4 space-y-2 text-gray-700">
+        <section id="projects" class="py-10 sm:py-12 bg-white rounded-lg shadow-lg mt-8 animate-on-scroll">
+            <h2 class="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 section-title text-center"><i class="fas fa-project-diagram"></i> Key Projects & Initiatives</h2>
+            <div class="p-6 sm:p-8">
+                <p class="text-sm sm:text-base text-center text-gray-700 mb-6 sm:mb-8">I have led and contributed to various projects aimed at enhancing operational capabilities and achieving strategic objectives. Here are some key examples with quantifiable impacts:</p>
+                <div class="grid md:grid-cols-2 gap-6 sm:gap-8"> <div class="card p-4 sm:p-6">
+                        <h3 class="text-lg sm:text-xl font-semibold text-blue-600">Power BI Dashboards Development</h3>
+                        <div class="mt-3 sm:mt-4 space-y-1 sm:space-y-2 text-gray-700 text-sm sm:text-base">
                             <p><strong>Objective:</strong> To develop comprehensive <span class="tool-highlight">Power BI</span> dashboards to provide timely and actionable insights to leadership.</p>
                             <p><strong>My Role:</strong> Developer and Analyst, responsible for <span class="tool-highlight">data extraction</span>, dashboard design, and implementation.</p>
                             <p><strong>Actions Taken:</strong> Identified key performance indicators, connected to various data sources using SQL and Excel, designed interactive visualizations, and deployed dashboards for leadership access.</p>
                             <p><strong>Outcome/Impact:</strong> <span class="tool-highlight">Developed 15 Power BI dashboards</span>, <span class="tool-highlight">cutting down reporting time by 40%</span> and empowering leadership with <span class="tool-highlight">actionable insights</span>.</p>
-                            <div class="chart-container mt-4">
+                            <div class="chart-container mt-3 sm:mt-4">
                                 <canvas id="reportingTimeChart"></canvas>
                             </div>
-                            <p class="mt-2"><strong>Technologies/Tools Used:</strong> <span class="tool-highlight">Power BI</span>, <span class="tool-highlight">SQL</span>, <span class="tool-highlight">Excel</span>.</p>
+                            <p class="mt-2 text-sm sm:text-base"><strong>Technologies/Tools Used:</strong> <span class="tool-highlight">Power BI</span>, <span class="tool-highlight">SQL</span>, <span class="tool-highlight">Excel</span>.</p>
                         </div>
                     </div>
-                    <div class="card p-6">
-                        <h3 class="text-xl font-semibold text-blue-600">CRM Workflow Strategy & Automation</h3>
-                         <div class="mt-4 space-y-2 text-gray-700">
+                    <div class="card p-4 sm:p-6">
+                        <h3 class="text-lg sm:text-xl font-semibold text-blue-600">CRM Workflow Strategy & Automation</h3>
+                         <div class="mt-3 sm:mt-4 space-y-1 sm:space-y-2 text-gray-700 text-sm sm:text-base">
                             <p><strong>Objective:</strong> To <span class="tool-highlight">strategically enhance CRM workflows</span> to significantly reduce lead processing time and boost customer engagement tracking through thoughtful design and targeted automation.</p>
                             <p><strong>My Role:</strong> Operations Specialist, responsible for conducting in-depth analysis of existing CRM workflows, identifying critical bottlenecks, and <span class="tool-highlight">designing and implementing tailored solutions</span> through direct system configuration and the deployment of automation tools.</p>
                             <p><strong>Actions Taken:</strong> Mapped current CRM processes, <span class="tool-highlight">identified crucial junctures for automation</span>, and meticulously configured HubSpot workflows. This involved <span class="tool-highlight">leveraging HubSpot Workflow Automation</span> to build solutions, such as the proactive 'choked' lead identification and alert system, ensuring improved follow-up and pipeline health. I also provided comprehensive training to relevant teams on these new procedures to ensure smooth adoption.</p>
                             <p><strong>Outcome/Impact:</strong> <span class="tool-highlight">Transformed deal progression</span> by reducing stagnated leads and ensuring timely interventions, significantly improving overall pipeline velocity and follow-up effectiveness.</p>
-                            <div class="chart-container mt-4">
+                            <div class="chart-container mt-3 sm:mt-4">
                                 <canvas id="leadProcessingChart"></canvas>
                             </div>
-                            <p class="mt-2"><strong>Technologies/Tools Used:</strong> <span class="tool-highlight">HubSpot CRM</span>, <span class="tool-highlight">Microsoft Dynamics 365</span>, <span class="tool-highlight">Zapier</span>.</p>
+                            <p class="mt-2 text-sm sm:text-base"><strong>Technologies/Tools Used:</strong> <span class="tool-highlight">HubSpot CRM</span>, <span class="tool-highlight">Microsoft Dynamics 365</span>, <span class="tool-highlight">Zapier</span>.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="education" class="py-12 mt-8 animate-on-scroll">
-            <h2 class="text-3xl font-bold mb-8 section-title text-center"><i class="fas fa-graduation-cap"></i> Education & Certifications</h2>
-            <div class="bg-white p-8 rounded-lg shadow-lg">
-                <p class="text-center text-gray-700 mb-8">My academic background and continuous learning through certifications provide a strong foundation for my expertise in business operations.</p>
+        <section id="education" class="py-10 sm:py-12 mt-8 animate-on-scroll">
+            <h2 class="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 section-title text-center"><i class="fas fa-graduation-cap"></i> Education & Certifications</h2>
+            <div class="bg-white p-6 sm:p-8 rounded-lg shadow-lg">
+                <p class="text-sm sm:text-base text-center text-gray-700 mb-6 sm:mb-8">My academic background and continuous learning through certifications provide a strong foundation for my expertise in business operations.</p>
                 <div class="space-y-6">
-                    <div class="card p-6">
-                        <h3 class="text-xl font-semibold text-blue-600">MBA (Business Analytics and Operations)</h3>
-                        <p class="text-gray-600 italic">CGPA - 9.01 | SRM Institute of Science and Technology, Chennai | 2021 - 2023</p>
+                    <div class="card p-4 sm:p-6">
+                        <h3 class="text-lg sm:text-xl font-semibold text-blue-600">MBA (Business Analytics and Operations)</h3>
+                        <p class="text-gray-600 italic text-sm sm:text-base">CGPA - 9.01 | SRM Institute of Science and Technology, Chennai | 2021 - 2023</p>
                     </div>
-                    <div class="card p-6">
-                        <h3 class="text-xl font-semibold text-blue-600">B.E. (Mechanical Engineering)</h3>
-                        <p class="text-gray-600 italic">CGPA - 7.0 | Panimalar Engineering College, Chennai | 2016 - 2020</p>
+                    <div class="card p-4 sm:p-6">
+                        <h3 class="text-lg sm:text-xl font-semibold text-blue-600">B.E. (Mechanical Engineering)</h3>
+                        <p class="text-gray-600 italic text-sm sm:text-base">CGPA - 7.0 | Panimalar Engineering College, Chennai | 2016 - 2020</p>
                     </div>
-                     <div class="card p-6">
-                        <h3 class="text-xl font-semibold text-blue-600">Certifications</h3>
-                        <ul class="list-disc list-inside mt-4 space-y-1 text-gray-700">
+                     <div class="card p-4 sm:p-6">
+                        <h3 class="text-lg sm:text-xl font-semibold text-blue-600">Certifications</h3>
+                        <ul class="list-disc list-inside mt-3 sm:mt-4 space-y-1 sm:space-y-2 text-gray-700 text-sm sm:text-base">
                             <li>HubSpot Sales Software Certification</li>
                             <li>Salesforce CRM (Pursuing) - Salesforce</li>
                             <li>HubSpot Workflow Automation - HubSpot</li>
@@ -469,11 +439,11 @@
             </div>
         </section>
 
-        <section id="contact" class="py-12 bg-gray-100 rounded-lg shadow-lg mt-8 animate-on-scroll">
-            <h2 class="text-3xl font-bold mb-8 section-title text-center"><i class="fas fa-envelope"></i> Contact Information</h2>
-            <div class="bg-white p-8 rounded-lg shadow-lg max-w-lg mx-auto">
-                <p class="text-center text-gray-700 mb-6">I'm always open to discussing new opportunities and collaborations. Feel free to reach out!</p>
-                <ul class="space-y-3 text-center">
+        <section id="contact" class="py-10 sm:py-12 bg-gray-100 rounded-lg shadow-lg mt-8 animate-on-scroll">
+            <h2 class="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 section-title text-center"><i class="fas fa-envelope"></i> Contact Information</h2>
+            <div class="bg-white p-6 sm:p-8 rounded-lg shadow-lg max-w-lg mx-auto">
+                <p class="text-sm sm:text-base text-center text-gray-700 mb-4 sm:mb-6">I'm always open to discussing new opportunities and collaborations. Feel free to reach out!</p>
+                <ul class="space-y-2 sm:space-y-3 text-center text-sm sm:text-base">
                     <li><span class="font-semibold text-blue-700">Email:</span> <a href="mailto:a.aravindkkl@gmail.com" class="text-blue-600 hover:text-blue-800">a.aravindkkl@gmail.com</a></li>
                     <li><span class="font-semibold text-blue-700">LinkedIn:</span> <a href="https://www.linkedin.com/in/aravind-agoramurthi/" target="_blank" class="text-blue-600 hover:text-blue-800">linkedin.com/in/aravind-agoramurthi/</a></li>
                     <li><span class="font-semibold text-blue-700">Phone:</span> <a href="tel:+919944864090" class="text-blue-600 hover:text-blue-800">+919944864090</a></li>
@@ -490,7 +460,7 @@
     <script>
         document.getElementById('currentYear').textContent = new Date().getFullYear();
 
-        const navLinksContainer = document.querySelector('nav .space-x-1'); // Adjusted selector for flex container
+        const navLinksContainer = document.querySelector('nav .flex-nowrap'); // Adjusted selector for flex container
         const navLinks = document.querySelectorAll('.nav-link');
         const sections = document.querySelectorAll('main section');
         const navIndicator = document.getElementById('nav-indicator');
