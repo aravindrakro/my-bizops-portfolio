@@ -1,322 +1,554 @@
-<title>Aravind Agoramurthi - Business Operations Portfolio</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZsQyAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<style>
-html { scroll-behavior: smooth; }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aravind Agoramurthi's Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Custom CSS for animations and font */
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f9fafb; /* Gray-50 */
-            color: #1f2937; /* Gray-800 */
-            overflow-wrap: break-word; /* General safeguard for text overflow */
-        }
-        body { font-family: 'Inter', sans-serif; background-color: #f9fafb; /* Gray-50 */ color: #1f2937; /* Gray-800 */ }
-
-/* Navigation Links - Icon & Text Expansion */
-.nav-link {
-@@ -24,14 +19,11 @@
-transition: all 0.4s ease-in-out; /* Smooth transition for all properties */
-padding: 0.5rem 0.75rem; /* Base padding for icon */
-border-radius: 9999px; /* Pill shape */
-            color: #4b5563; /* Gray-600 */
-text-decoration: none;
-width: 2.75rem; /* Initial width for just the icon */
-            min-width: 2.75rem; /* Ensure it doesn't shrink below icon size */
-justify-content: center; /* Center the icon when text is hidden */
-flex-shrink: 0; /* Prevent links from shrinking too much */
-
-            /* NEW: Increased contrast for icon visibility */
-            background-color: #374151; /* Dark Gray-700 for strong contrast */
-}
-
-.nav-link:hover, .nav-link.active {
-@@ -42,27 +34,20 @@
-}
-
-.nav-link i {
-            font-size: 1.5rem; /* Increased to make icons more visible */
-            font-size: 1.1rem; /* Adjust icon size */
-margin-right: 0; /* No initial margin */
-transition: margin-right 0.3s ease-in-out;
-            /* NEW: Explicitly set icon color to white for high contrast */
-            color: #ffffff; /* White */
-            /* Add Font Awesome specific styles to ensure rendering */
-            font-family: "Font Awesome 6 Free"; /* Explicitly set Font Awesome font */
-            font-weight: 900; /* For solid icons (fas) */
-}
-
-.nav-link:hover i, .nav-link.active i {
-margin-right: 0.5rem; /* Space between icon and text on hover/active */
-            color: #2563eb; /* Blue-600 on hover/active */
-}
-
-.nav-text {
-max-width: 0; /* Initially hide text */
-opacity: 0;
-white-space: nowrap; /* Prevent text from wrapping */
-transition: max-width 0.4s ease-in-out, opacity 0.4s ease-in-out, margin-left 0.4s ease-in-out;
-            color: #4b5563; /* Gray-600 - default text color */
-}
-
-.nav-link:hover .nav-text, .nav-link.active .nav-text {
-@@ -169,54 +154,33 @@
-z-index: 1;
-}
-
-        @media (max-width: 767px) { /* Hide shapes on smaller screens to avoid clutter */
-        @media (max-width: 768px) {
-.shape {
-                display: none;
-                display: none; /* Hide shapes on smaller screens to avoid clutter */
-}
-}
-
-/* Sticky Header Profile Picture and Name */
-        #header-profile-pic, #header-name-container {
-        #header-profile-pic, #header-name-text {
-opacity: 0;
-transform: translateY(-10px); /* Initial state for appearance */
-transition: opacity 0.3s ease-out, transform 0.3s ease-out;
-pointer-events: none; /* Do not block clicks if hidden */
-}
-#header-profile-pic {
-width: 36px; height: 36px;
-            margin-right: 0.5rem; /* Space between photo and name */
-            margin-left: 1rem;
-flex-shrink: 0; /* Prevent shrinking when text is long */
-}
-        #header-name-container {
-        #header-name-text {
-font-size: 1.5rem; /* Base size, will be dynamically scaled */
-            line-height: 1.1; /* Adjust line height for 2 lines */
-            white-space: normal; /* Allow name to wrap */
-            margin-left: 0.5rem;
-            white-space: nowrap; /* Prevent wrapping */
-overflow: hidden;
-text-overflow: ellipsis;
-            display: flex; /* Use flex to align first/last name */
-            flex-direction: column; /* Stack first and last name vertically */
-        }
-        #header-name-container .first-name,
-        #header-name-container .last-name {
-            display: block; /* Ensure each part is on its own line */
-        }
-        #header-name-container .last-name {
-            font-size: 0.9em; /* Slightly smaller for last name */
-            color: #4b5563; /* Slightly muted color for last name */
+            scroll-behavior: smooth;
         }
 
+        /* Fade-in-down animation */
+        @keyframes fade-in-down {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in-down { animation: fade-in-down 0.8s ease-out forwards; }
 
-        /* Adjust font size for header name on small screens */
-        @media (max-width: 767px) { /* For small mobile screens */
-            #header-name-container {
-                font-size: 1.1rem; /* Smaller font for phones */
+        /* Fade-in-up animation */
+        @keyframes fade-in-up {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in-up { animation: fade-in-up 0.8s ease-out forwards; }
+
+        /* Fade-in-left animation */
+        @keyframes fade-in-left {
+            from { opacity: 0; transform: translateX(-20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        .animate-fade-in-left { animation: fade-in-left 0.8s ease-out forwards; }
+
+        /* Fade-in-right animation */
+        @keyframes fade-in-right {
+            from { opacity: 0; transform: translateX(20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        .animate-fade-in-right { animation: fade-in-right 0.8s ease-out forwards; }
+
+        /* Pulse slow animation for background elements */
+        @keyframes pulse-slow {
+            0% { transform: scale(1); opacity: 0.1; }
+            50% { transform: scale(1.1); opacity: 0.2; }
+            100% { transform: scale(1); opacity: 0.1; }
+        }
+        .animate-pulse-slow { animation: pulse-slow 6s infinite ease-in-out; }
+
+        /* Navigation item hover effect for text expansion */
+        .nav-item .nav-text {
+            display: inline-block; /* Changed to inline-block for width transition */
+            opacity: 0;
+            width: 0; /* Use width for transition */
+            white-space: nowrap;
+            overflow: hidden;
+            transition: width 0.3s ease-out, opacity 0.3s ease-out;
+        }
+
+        .nav-item:hover .nav-text {
+            opacity: 1;
+            width: auto; /* Expand width on hover */
+            max-width: 150px; /* Max width to prevent excessive expansion */
+        }
+
+        .nav-item.active {
+            color: #4338CA; /* indigo-700 */
+            background-color: #EEF2FF; /* indigo-50 */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1); /* shadow-md */
+            transform: scale(1.05);
+        }
+
+        /* Specific for timeline dots */
+        .timeline-dot {
+            left: -2.5rem; /* Matches the ml-10 for the job cards */
+            top: 1.5rem;
+            width: 1.5rem;
+            height: 1.5rem;
+            background-color: #4F46E5; /* indigo-600 */
+            border-radius: 9999px; /* full */
+            border: 4px solid white;
+            position: absolute;
+            z-index: 10; /* Ensure it's above the line */
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-indigo-50 to-purple-100 font-inter text-gray-900 leading-relaxed pt-20 md:pt-24">
+
+    <nav class="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-sm shadow-lg py-4 z-50 rounded-b-xl">
+        <div class="container mx-auto px-6 flex flex-wrap justify-center gap-2 md:gap-4">
+            <div id="mini-profile" class="absolute top-1/2 -translate-y-1/2 left-4 flex items-center gap-2 transition-all duration-500 opacity-0 -translate-x-full">
+                <img src="https://raw.githubusercontent.com/aravindrakro/my-bizops-portfolio/main/aravind-profile.jpg" alt="Aravind Agoramurthi" class="w-10 h-10 rounded-full object-cover border-2 border-indigo-600" onerror="this.onerror=null;this.src='https://placehold.co/40x40/E0E7FF/6366F1?text=P';">
+                <span class="font-bold text-indigo-800 text-sm md:text-base">ARAVIND</span>
+            </div>
+
+            <div id="nav-links" class="flex flex-wrap justify-center gap-2 md:gap-4">
+                </div>
+        </div>
+    </nav>
+
+    <header id="header-section" class="relative bg-gradient-to-r from-indigo-700 to-purple-800 text-white py-16 md:py-24 shadow-xl overflow-hidden rounded-b-3xl">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row items-center justify-between relative z-10">
+            <div class="flex flex-col items-center md:items-start text-center md:text-left mb-8 md:mb-0">
+                <h1 class="text-4xl md:text-6xl font-extrabold mb-2 animate-fade-in-down">
+                    ARAVIND AGORAMURTHI
+                </h1>
+                <p class="text-xl md:text-2xl font-light mb-6 animate-fade-in-up">
+                    Business Operations Specialist
+                </p>
+                <div class="flex flex-wrap justify-center md:justify-start gap-4 text-lg">
+                    <span class="flex items-center gap-2 animate-fade-in-left">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                        a.aravindkkl@gmail.com
+                    </span>
+                    <span class="flex items-center gap-2 animate-fade-in-left delay-100">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-3.67-3.67A19.79 19.79 0 0 1 2 6.18 2 2 0 0 1 4.11 4h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        +919944864090
+                    </span>
+                    <span class="flex items-center gap-2 animate-fade-in-left delay-200">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                        Chennai
+                    </span>
+                    <a href="https://www.linkedin.com/in/aravind-agoramurthi/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-white hover:text-blue-300 transition duration-300 animate-fade-in-left delay-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                        LinkedIn
+                    </a>
+                </div>
+            </div>
+            <div class="relative w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden shadow-2xl border-4 border-white transform hover:scale-105 transition-transform duration-500 animate-fade-in-right">
+                <img src="https://raw.githubusercontent.com/aravindrakro/my-bizops-portfolio/main/aravind-profile.jpg" alt="Aravind Agoramurthi" class="object-cover w-full h-full" onerror="this.onerror=null;this.src='https://placehold.co/256x256/E0E7FF/6366F1?text=Profile';">
+            </div>
+        </div>
+        <div class="absolute top-0 left-0 w-full h-full">
+            <div class="absolute w-40 h-40 bg-white opacity-10 rounded-full -top-10 -left-10 animate-pulse-slow"></div>
+            <div class="absolute w-60 h-60 bg-white opacity-10 rounded-full -bottom-20 -right-20 animate-pulse-slow delay-200"></div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-16">
+        </main>
+
+    <footer class="bg-gray-800 text-white py-8 text-center rounded-t-3xl">
+        <p class="text-lg">&copy; <span id="current-year"></span> Aravind Agoramurthi. All rights reserved.</p>
+        <div class="flex justify-center mt-4 space-x-4">
+            <a href="https://www.linkedin.com/in/aravind-agoramurthi/" target="_blank" rel="noopener noreferrer" class="text-white hover:text-blue-400 transition duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+            <a href="mailto:a.aravindkkl@gmail.com" class="text-white hover:text-red-400 transition duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            </a>
+            <a href="tel:+919944864090" class="text-white hover:text-green-400 transition duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-3.67-3.67A19.79 19.79 0 0 1 2 6.18 2 2 0 0 1 4.11 4h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </a>
+        </div>
+    </footer>
+
+    <script>
+        // Data for the portfolio (same as before)
+        const portfolioData = {
+            name: "ARAVIND AGORAMURTHI",
+            title: "Business Operations Specialist",
+            summary: "Business Operations Specialist with 2+ years of experience in driving efficient sales and business operations. Specializes in supporting core sales and revenue operations processes, ensuring seamless execution, strategic alignment, and process consistency across teams. Focuses on CRM optimization and operational visibility, streamlining workflows, and enhancing team productivity. Brings a deep understanding of revenue workflows, sales enablement, and cross-functional collaboration. Known for enabling data-driven decisions and continuous improvement, with a focus on building scalable, insight-led, and performance-oriented operations.",
+            image: "https://raw.githubusercontent.com/aravindrakro/my-bizops-portfolio/main/aravind-profile.jpg",
+            contact: {
+                phone: "+919944864090",
+                email: "a.aravindkkl@gmail.com",
+                location: "Chennai",
+                linkedin: "https://www.linkedin.com/in/aravind-agoramurthi/",
+            },
+            skills: {
+                "CRM & Sales Operations": [
+                    "HubSpot CRM (Sequences, Workflow Automation)", "Microsoft Dynamics 365", "Salesforce (Pursuing)",
+                    "DevRev", "SendGrid", "Outplay"
+                ],
+                "Data Analytics & Reporting": [
+                    "Power BI", "Excel (Pivot Tables, Macros)", "Looker Studio", "BigQuery", "SQL (Basics)"
+                ],
+                "Sales Intelligence & Research": [
+                    "6sense", "ZoomInfo", "LinkedIn Sales Navigator", "Infotelligent", "Apollo", "Kendo"
+                ],
+                "Project Management & Process Improvement": [
+                    "Microsoft Project", "DevRev", "Airtable", "Microsoft Visio"
+                ],
+                "Design & Communication": [
+                    "PowerPoint", "Figma", "Canva", "Photoshop"
+                ],
+            },
+            experience: [
+                {
+                    title: "Business Operations - Executive",
+                    company: "Korcomptenz Inc",
+                    duration: "Jan 2025 - Present",
+                    details: [
+                        "Streamlined business processes by optimizing workflows in HubSpot and Microsoft Dynamics 365, reducing data entry errors by 25% and enhancing lead management efficiency.",
+                        "Led training sessions for over 10 team members on HubSpot CRM, boosting CRM adoption by 30% and ensuring uniform usage across different departments.",
+                        "Developed over 15 Power BI dashboards, cutting down reporting time by 40% and empowering leadership with timely, actionable insights.",
+                        "Designed and implemented comprehensive SOPs for sales, marketing, and lead generation activities, ensuring consistency, scalability, and operational smoothness.",
+                        "Utilized ZoomInfo to pinpoint 500+ high-potential clients, driving a 20% increase in lead conversion and optimizing the sales pipeline.",
+                        "Conducted thorough industry research to refine sales strategies, identify emerging trends, and unlock new business development opportunities.",
+                        "Crafted persuasive proposals and visually appealing presentations with PowerPoint, Canva and Figma, enhancing client engagement and business proposals.",
+                        "Leveraged Apollo and LinkedIn Sales Navigator to improve marketing outreach, streamline lead nurturing processes, and enhance overall operational efficiency.",
+                    ],
+                },
+                {
+                    title: "Sales Operations Trainee",
+                    company: "Korcomptenz Inc",
+                    duration: "Aug 2023 - Dec 2024",
+                    details: [
+                        "Spearheaded the optimization and maintenance of CRM systems (HubSpot and Microsoft Dynamics 365), ensuring seamless integration, accurate data tracking, and improved lead conversion rates.",
+                        "Streamlined sales processes by automating workflows within HubSpot, reducing manual tasks and enhancing lead tracking efficiency.",
+                        "Developed custom reports and dashboards using Power BI, enabling leadership to make data-driven decisions and improving the overall visibility of sales performance metrics.",
+                        "Worked closely with the sales, marketing, and finance teams to align sales strategies with business objectives, improving communication, coordination, and operational efficiency.",
+                        "Managed the sales pipeline and forecasting process, ensuring accurate tracking of leads and opportunities and contributing to strategic decision-making for sales targets.",
+                        "Provided ongoing training and support to the sales team on CRM usage, sales processes, and tools, driving greater adoption and improving overall sales performance across the team.",
+                    ],
+                },
+                {
+                    title: "Strategic Operations - Intern",
+                    company: "DevRev",
+                    duration: "Jun 2022 - Feb 2023",
+                    details: [
+                        "Analyzed 10,000+ data points using Looker Studio & Excel, generating insights that improved business strategy alignment by 20%.",
+                        "Managed CRM workflows, reducing lead processing time by 30% and improving customer engagement tracking.",
+                        "Proficient in managing multiple tools effectively, handling administrative tasks, and maintaining comprehensive documentation.",
+                        "SEO techniques and data reporting for website performance and decision-making.",
+                        "Thrives in multicultural environments and excels in collaborating effectively with diverse teams.",
+                        "Proficient in creating Pivot tables for data analysis and visualization.",
+                    ],
+                },
+            ],
+            education: [
+                {
+                    degree: "MBA (Business Analytics and Operations)",
+                    cgpa: "9.01",
+                    year: "2021-2023",
+                    institution: "SRM Institute of Science and Technology, Chennai.",
+                },
+                {
+                    degree: "B.E. (Mechanical Engineering)",
+                    cgpa: "7.0",
+                    year: "2016-2020",
+                    institution: "Panimalar Engineering College, Chennai.",
+                },
+            ],
+            certifications: {
+                "CRM & Sales Operations": [
+                    "HubSpot Sales Software Certification", "Salesforce CRM (Pursuing)"
+                ],
+                "Data and Analytics": [
+                    "Analyzing & Visualizing Data in Looker Google", "IBM Data Fundamentals"
+                ],
+                "Automation": [
+                    "Zapier Automation Fundamentals", "HubSpot Workflow Automation"
+                ],
+                "Generative AI": [
+                    "Google Generative AI (LLM) & Basics of Prompt Design Google"
+                ],
+                "Database": [
+                    "MySQL Basics - Oracle"
+                ],
+                "Project Management and Agile": [
+                    "Agile Foundations Project Management Institute (PMI)", "Project Management Foundations - PMI", "Microsoft Projects Certification - PIM"
+                ],
+            },
+        };
+
+        // Helper function to get SVG icon markup
+        function getIconSvg(iconName, size = 24, className = "") {
+            const icons = {
+                User: `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="${className}"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>`,
+                Briefcase: `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="${className}"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>`,
+                GraduationCap: `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="${className}"><path d="M21.4 12.7c-.5.3-1.1.5-1.7.5h-4.3c-.6 0-1.2-.2-1.7-.5L12 9.5l-1.7 3.2c-.5.3-1.1.5-1.7.5H4.3c-.6 0-1.2-.2-1.7-.5L.6 9.5 12 2l11.4 7.5-.6.7Z"/><path d="M12 2v7"/><path d="M12 9.5c0 0 12 7.5 12 7.5L12 22l-12-5.5s12-7.5 12-7.5Z"/></svg>`,
+                Award: `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="${className}"><circle cx="12" cy="8" r="7"/><path d="M8.21 13.89 7 22l5-3 5 3-1.21-8.11"/><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>`,
+                Mail: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>`,
+                Phone: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-3.67-3.67A19.79 19.79 0 0 1 2 6.18 2 2 0 0 1 4.11 4h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>`,
+                MapPin: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>`,
+                Linkedin: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>`,
+                BarChart: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-bar-chart"><line x1="12" x2="12" y1="20" y2="10"/><line x1="18" x2="18" y1="20" y2="4"/><line x1="6" x2="6" y1="20" y2="16"/></svg>`,
+                Database: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="${className}"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 12A9 3 0 0 0 21 12v-1a9 3 0 0 0-18 0v1Z"/><path d="M3 19A9 3 0 0 0 21 19v-1a9 3 0 0 0-18 0v1Z"/></svg>`,
+                Cog: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="${className}"><path d="M12 20a8 8 0 1 0 0-16 8 8 0 0 0 0 16Z"/><path d="M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"/><path d="M12 2v2"/><path d="M12 22v-2"/><path d="m19.07 4.93-1.41 1.41"/><path d="m5.34 18.66 1.41 1.41"/><path d="m22 12h-2"/><path d="M4 12H2"/><path d="m19.07 19.07-1.41-1.41"/><path d="m5.34 5.34 1.41-1.41"/></svg>`,
+                ClipboardList: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="${className}"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4"/><path d="M12 16h4"/><path d="M8 11h.01"/><path d="M8 16h.01"/></svg>`,
+                Palette: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="${className}"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="11.5" cy="9.5" r=".5" fill="currentColor"/><circle cx="11.5" cy="14.5" r=".5" fill="currentColor"/><circle cx="16.5" cy="12.5" r=".5" fill="currentColor"/><path d="M17.89 1.17 22 5.28c.39.39.39 1.02 0 1.41L12.72 15.24a2 2 0 0 1-.7.5l-4.5 1.48a2 2 0 0 1-2.12-.53L1.5 11.75a2 2 0 0 1-.39-1.92l1.24-5.22a2 2 0 0 1 1.83-1.4L8.7 3.52a2 2 0 0 1 1.35.62l.81.82"/><path d="m14 6 2-2"/><path d="M10 10 8 8"/><path d="m12 12-2 2"/></svg>`,
+                Search: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="${className}"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>`,
+                GitBranch: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="${className}"><line x1="6" x2="6" y1="3" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/></svg>`,
+                Zap: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="${className}"><path d="M10 2L3 14h9l-3 8 10-16h-9l3-8z"/></svg>`,
+                Lightbulb: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="${className}"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1.3.5 2.6 1.5 3.5.8.8 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 18v4"/></svg>`,
+                Book: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="${className}"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>`,
+                Settings: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="${className}"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.78 1.28a2 2 0 0 0 .73 2.73l.15.08a2 2 0 0 1 1 1.74v.44a2 2 0 0 0 2 2v.18a2 2 0 0 1 1 1.73l.43.25a2 2 0 0 1 2 0l.15-.08a2 2 0 0 0 2.73.73l.78 1.28a2 2 0 0 0-.73 2.73l-.15.08a2 2 0 0 1-1 1.74v.44a2 2 0 0 0 2 2v.18a2 2 0 0 1 1 1.73l.43.25a2 2 0 0 1 2 0l.15-.08a2 2 0 0 0 2.73-.73l.78-1.28a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1-1-1.73l-.43-.25a2 2 0 0 1-2 0l-.15.08a2 2 0 0 0-2.73-.73l-.78-1.28a2 2 0 0 0 .73-2.73l.15-.08a2 2 0 0 1 1-1.74V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>`,
+            };
+            return icons[iconName] || '';
+        }
+
+        // Function to determine the icon for each skill category
+        const getSkillIcon = (category) => {
+            switch (category) {
+                case "CRM & Sales Operations": return getIconSvg('Cog', 24, 'text-blue-500');
+                case "Data Analytics & Reporting": return getIconSvg('BarChart', 24, 'text-green-500');
+                case "Sales Intelligence & Research": return getIconSvg('Search', 24, 'text-purple-500');
+                case "Project Management & Process Improvement": return getIconSvg('ClipboardList', 24, 'text-yellow-500');
+                case "Design & Communication": return getIconSvg('Palette', 24, 'text-red-500');
+                default: return getIconSvg('Settings', 24, 'text-gray-500');
             }
-            #header-name-container .last-name {
-                font-size: 0.8em; /* Adjust for small screens */
+        };
+
+        // Function to determine the icon for each certification category
+        const getCertificationIcon = (category) => {
+            switch (category) {
+                case "CRM & Sales Operations": return getIconSvg('Briefcase', 24, 'text-blue-500');
+                case "Data and Analytics": return getIconSvg('Database', 24, 'text-green-500');
+                case "Automation": return getIconSvg('Zap', 24, 'text-orange-500');
+                case "Generative AI": return getIconSvg('Lightbulb', 24, 'text-indigo-500');
+                case "Database": return getIconSvg('Book', 24, 'text-gray-500');
+                case "Project Management and Agile": return getIconSvg('GitBranch', 24, 'text-purple-500');
+                default: return getIconSvg('Award', 24, 'text-gray-500');
             }
-}
+        };
 
-        #header-profile-pic.show, #header-name-container.show {
-        #header-profile-pic.show, #header-name-text.show {
-opacity: 1;
-transform: translateY(0);
-pointer-events: auto; /* Enable clicks when visible */
-@@ -241,7 +205,6 @@
-transition: opacity 0.7s ease-out, transform 0.7s ease-out; /* Slower transition */
-position: relative; /* Ensure z-index works and for animations */
-z-index: 1; /* Above background elements if any, below sticky header */
-            will-change: transform, opacity; /* Hint to browser for smoother animations */
-}
+        const mainContent = document.querySelector('main');
+        const navLinksContainer = document.getElementById('nav-links');
+        const miniProfile = document.getElementById('mini-profile');
+        const headerSection = document.getElementById('header-section');
+        const currentYearSpan = document.getElementById('current-year');
 
-.animate-on-scroll.is-visible {
-@@ -266,13 +229,10 @@
-<header class="bg-white shadow-md sticky top-0 z-50">
-<nav class="container mx-auto px-6 py-3 flex justify-between items-center relative">
-<div class="flex items-center">
-                <a href="#" class="text-2xl font-bold text-gray-800" id="header-name-text">Aravind Agoramurthi</a>
-<img id="header-profile-pic" src="https://raw.githubusercontent.com/aravindrakro/my-bizops-portfolio/main/aravind-profile.jpg" alt="Aravind Agoramurthi" class="rounded-full object-cover">
-                <a href="#" class="font-bold text-gray-800" id="header-name-container">
-                    <span class="first-name">Aravind</span>
-                    <span class="last-name">Agoramurthi</span>
-                </a>
-</div>
-            <div class="flex flex-wrap justify-end gap-1 sm:gap-2 md:gap-4"> <a href="#about" class="nav-link">
-            <div class="flex flex-nowrap overflow-x-auto space-x-1 sm:space-x-2 md:space-x-4"> <a href="#about" class="nav-link">
-<i class="fas fa-user"></i>
-<span class="nav-text">About</span>
-</a>
-@@ -301,9 +261,6 @@
-</nav>
-</header>
+        // Set current year in footer
+        currentYearSpan.textContent = new Date().getFullYear();
 
-    <div id="mobile-topic-pane" class="fixed top-16 left-0 w-full bg-white shadow-md z-40 py-2 px-4 text-gray-800 font-semibold text-lg md:hidden">
-        Current Section: <span id="current-topic-display">About</span> </div>
+        // Dynamically create navigation links
+        const navItems = [
+            { id: 'summary', label: 'About Me', icon: 'User' },
+            { id: 'skills', label: 'Skills', icon: 'Settings' },
+            { id: 'experience', label: 'Experience', icon: 'Briefcase' },
+            { id: 'education', label: 'Education', icon: 'GraduationCap' },
+            { id: 'certifications', label: 'Certifications', icon: 'Award' },
+        ];
 
-<main class="container mx-auto px-4 sm:px-6 lg:px-8 py-8"> <section id="about" class="py-12 hero-bg-pattern rounded-lg shadow-inner text-center">
-<div id="animated-background">
-<div class="shape shape-1"></div>
-@@ -377,38 +334,38 @@ <h2 class="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 section-title text-center
-<p class="text-sm sm:text-base text-center text-gray-700 mb-6 sm:mb-8">Throughout my career, I've held key roles where I've contributed to operational excellence and strategic growth. Below are highlights of my professional journey and accomplishments, emphasizing the tools I utilized.</p>
-<div class="space-y-6 sm:space-y-8">
-<div class="card p-4 sm:p-6"> <h3 class="text-lg sm:text-xl font-semibold text-blue-600">Business Operations - Executive</h3>
-                        <p class="text-gray-600 italic text-sm sm:text-base">Korcomptenz Inc | Jan 2025 - Present</p> <ul class="list-disc list-inside mt-3 sm:mt-4 space-y-1 sm:space-y-2 text-gray-700 text-sm sm:text-base"> <li><span class="tool-highlight">Expertly managed and refined CRM workflows</span> in HubSpot and Microsoft Dynamics 365, significantly <span class="tool-highlight">reducing data entry errors by 25%</span> and enhancing overall lead management efficiency through direct system configuration and strategic process design. [cite: 7]</li>
-                            <li><span class="tool-highlight">Led training sessions</span> for over 10 team members on HubSpot CRM, <span class="tool-highlight">boosting CRM adoption by 30%</span> and ensuring uniform usage. [cite: 8]</li>
-                            <li>Developed over <span class="tool-highlight">15 Power BI dashboards</span>, cutting down reporting time by 40% and empowering leadership with <span class="tool-highlight">actionable insights</span>. [cite: 9]</li>
-                            <li><span class="tool-highlight">Designed SOPs</span> for sales, marketing, and lead generation activities, ensuring consistency, scalability, and operational smoothness. [cite: 10]</li>
-                            <li>Utilized ZoomInfo to pinpoint <span class="tool-highlight">500+ high-potential clients</span>, driving a <span class="tool-highlight">20% increase in lead conversion</span> and optimizing the sales pipeline. [cite: 11]</li>
-                            <li><span class="tool-highlight">Conducted industry research</span> to refine sales strategies, identify emerging trends, and unlock new business development opportunities. [cite: 12]</li>
-                            <li><span class="tool-highlight">Crafted persuasive proposals</span> and visually appealing presentations with PowerPoint, Canva, and Figma, enhancing client engagement and business proposals. [cite: 13]</li>
-                            <li>Leveraged Apollo and LinkedIn Sales Navigator to improve marketing outreach, <span class="tool-highlight">streamline lead nurturing</span>, and enhance overall operational efficiency. [cite: 14]</li>
-                        <p class="text-gray-600 italic text-sm sm:text-base">Korcomptenz Inc | Jan 2025 - Present</p> <ul class="list-disc list-inside mt-3 sm:mt-4 space-y-1 sm:space-y-2 text-gray-700 text-sm sm:text-base"> <li><span class="tool-highlight">Expertly managed and refined CRM workflows</span> in HubSpot and Microsoft Dynamics 365, significantly <span class="tool-highlight">reducing data entry errors by 25%</span> and enhancing overall lead management efficiency through direct system configuration and strategic process design.</li>
-                            <li><span class="tool-highlight">Led training sessions</span> for over 10 team members on HubSpot CRM, <span class="tool-highlight">boosting CRM adoption by 30%</span> and ensuring uniform usage.</li>
-                            <li>Developed over <span class="tool-highlight">15 Power BI dashboards</span>, cutting down reporting time by 40% and empowering leadership with <span class="tool-highlight">actionable insights</span>.</li>
-                            <li><span class="tool-highlight">Designed SOPs</span> for sales, marketing, and lead generation activities, ensuring consistency, scalability, and operational smoothness.</li>
-                            <li>Utilized ZoomInfo to pinpoint <span class="tool-highlight">500+ high-potential clients</span>, driving a <span class="tool-highlight">20% increase in lead conversion</span> and optimizing the sales pipeline.</li>
-                            <li><span class="tool-highlight">Conducted industry research</span> to refine sales strategies, identify emerging trends, and unlock new business development opportunities.</li>
-                            <li><span class="tool-highlight">Crafted persuasive proposals</span> and visually appealing presentations with PowerPoint, Canva, and Figma, enhancing client engagement and business proposals.</li>
-                            <li>Leveraged Apollo and LinkedIn Sales Navigator to improve marketing outreach, <span class="tool-highlight">streamline lead nurturing</span>, and enhance overall operational efficiency.</li>
-</ul>
-</div>
-<div class="card p-4 sm:p-6">
-<h3 class="text-lg sm:text-xl font-semibold text-blue-600">Sales Operations Trainee</h3>
-<p class="text-gray-600 italic text-sm sm:text-base">Korcomptenz Inc | Aug 2023 - Dec 2024</p>
-<ul class="list-disc list-inside mt-3 sm:mt-4 space-y-1 sm:space-y-2 text-gray-700 text-sm sm:text-base">
-                            <li><span class="tool-highlight">Spearheaded CRM workflow design and maintenance</span> (HubSpot and Microsoft Dynamics 365), ensuring seamless integration, accurate data tracking, and improved lead conversion rates. [cite: 15]</li>
-                            <li><span class="tool-highlight">Designed and implemented robust automation workflows</span> within HubSpot, drastically <span class="tool-highlight">reducing manual tasks</span> and enhancing lead tracking efficiency. [cite: 16] This included conceptualizing and deploying an automated trigger system to identify 'choked' leads (those past the closed stage without engagement), sending proactive alerts to leadership and respective Business Development Managers via email, which significantly improved follow-up rates and pipeline health.</li>
-                            <li><span class="tool-highlight">Developed custom reports</span> and dashboards using Power BI, enabling leadership to make <span class="tool-highlight">data-driven decisions</span> and improving the overall visibility of sales performance metrics. [cite: 17]</li>
-                            <li><span class="tool-highlight">Collaborated with teams</span> to align sales strategies with business objectives, improving communication and coordination. [cite: 18]</li>
-                            <li><span class="tool-highlight">Managed sales pipeline</span> and forecasting process, ensuring accurate tracking of leads and <span class="tool-highlight">contributing to strategic decision-making</span> for sales targets. [cite: 19]</li>
-                            <li><span class="tool-highlight">Provided training and support</span> to the sales team on CRM usage and sales processes, driving <span class="tool-highlight">greater adoption and improving performance</span>. [cite: 20]</li>
-                            <li><span class="tool-highlight">Spearheaded CRM workflow design and maintenance</span> (HubSpot and Microsoft Dynamics 365), ensuring seamless integration, accurate data tracking, and <span class="tool-highlight">improved lead conversion rates</span>.</li>
-                            <li><span class="tool-highlight">Designed and implemented robust automation workflows</span> within HubSpot, drastically <span class="tool-highlight">reducing manual tasks</span> and enhancing lead tracking efficiency. This included conceptualizing and deploying an automated trigger system to identify 'choked' leads (those past the closed stage without engagement), sending proactive alerts to leadership and respective Business Development Managers via email, which significantly improved follow-up rates and pipeline health.</li>
-                            <li><span class="tool-highlight">Developed custom reports</span> and dashboards using Power BI, enabling leadership to make <span class="tool-highlight">data-driven decisions</span> and improving overall visibility of sales performance metrics.</li>
-                            <li><span class="tool-highlight">Collaborated with teams</span> to align sales strategies with business objectives, improving communication and coordination.</li>
-                            <li><span class="tool-highlight">Managed sales pipeline</span> and forecasting process, ensuring accurate tracking of leads and <span class="tool-highlight">contributing to strategic decision-making</span> for sales targets.</li>
-                            <li><span class="tool-highlight">Provided training and support</span> to the sales team on CRM usage and sales processes, driving <span class="tool-highlight">greater adoption and improving performance</span>.</li>
-</ul>
-</div>
-<div class="card p-4 sm:p-6">
-<h3 class="text-lg sm:text-xl font-semibold text-blue-600">Strategic Operations - Intern</h3>
-<p class="text-gray-600 italic text-sm sm:text-base">DevRev | Jun 2022 - Feb 2023</p>
-<ul class="list-disc list-inside mt-3 sm:mt-4 space-y-1 sm:space-y-2 text-gray-700 text-sm sm:text-base">
-                            <li><span class="tool-highlight">Analyzed 10,000+ data points</span> using Looker Studio & Excel, <span class="tool-highlight">generating insights</span> that improved business strategy alignment by 20%. [cite: 23]</li>
-                            <li><span class="tool-highlight">Managed CRM workflows</span>, <span class="tool-highlight">reducing lead processing time by 30%</span> and improving customer engagement tracking. [cite: 24]</li>
-                            <li><span class="tool-highlight">Proficient in managing tools</span>, handling administrative tasks, and maintaining comprehensive documentation. [cite: 25]</li>
-                            <li><span class="tool-highlight">Applied SEO techniques</span> and data reporting for website performance and decision-making. [cite: 26]</li>
-                            <li><span class="tool-highlight">Thrives in multicultural environments</span> and excels in <span class="tool-highlight">collaborating effectively</span> with diverse teams. [cite: 27]</li>
-                            <li><span class="tool-highlight">Proficient in Pivot tables</span> for data analysis and visualization. [cite: 28]</li>
-                            <li><span class="tool-highlight">Analyzed 10,000+ data points</span> using Looker Studio & Excel, <span class="tool-highlight">generating insights</span> that improved business strategy alignment by 20%.</li>
-                            <li><span class="tool-highlight">Managed CRM workflows</span>, <span class="tool-highlight">reducing lead processing time by 30%</span> and improving customer engagement tracking.</li>
-                            <li><span class="tool-highlight">Proficient in managing tools</span>, handling administrative tasks, and maintaining comprehensive documentation.</li>
-                            <li><span class="tool-highlight">Applied SEO techniques</span> and data reporting for website performance and decision-making.</li>
-                            <li><span class="tool-highlight">Thrives in multicultural environments</span> and excels in <span class="tool-highlight">collaborating effectively</span> with diverse teams.</li>
-                            <li><span class="tool-highlight">Proficient in Pivot tables</span> for data analysis and visualization.</li>
-</ul>
-</div>
-</div>
-@@ -425,7 +382,7 @@ <h3 class="text-lg sm:text-xl font-semibold text-blue-600">Power BI Dashboards D
-<p><strong>Objective:</strong> To develop comprehensive <span class="tool-highlight">Power BI</span> dashboards to provide timely and actionable insights to leadership.</p>
-<p><strong>My Role:</strong> Developer and Analyst, responsible for <span class="tool-highlight">data extraction</span>, dashboard design, and implementation.</p>
-<p><strong>Actions Taken:</strong> Identified key performance indicators, connected to various data sources using SQL and Excel, designed interactive visualizations, and deployed dashboards for leadership access.</p>
-                            <p><strong>Outcome/Impact:</strong> <span class="tool-highlight">Developed 15 Power BI dashboards</span>, <span class="tool-highlight">cutting down reporting time by 40%</span> and empowering leadership with <span class="tool-highlight">actionable insights</span>. [cite: 9]</p>
-                            <p><strong>Outcome/Impact:</strong> <span class="tool-highlight">Developed 15 Power BI dashboards</span>, <span class="tool-highlight">cutting down reporting time by 40%</span> and empowering leadership with <span class="tool-highlight">actionable insights</span>.</p>
-<div class="chart-container mt-3 sm:mt-4">
-<canvas id="reportingTimeChart"></canvas>
-</div>
-@@ -456,23 +413,23 @@ <h2 class="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 section-title text-center
-<div class="space-y-6">
-<div class="card p-4 sm:p-6">
-<h3 class="text-lg sm:text-xl font-semibold text-blue-600">MBA (Business Analytics and Operations)</h3>
-                        <p class="text-gray-600 italic text-sm sm:text-base">CGPA - 9.01 | SRM Institute of Science and Technology, Chennai | 2021 - 2023</p> [cite: 29]
-                        <p class="text-gray-600 italic text-sm sm:text-base">CGPA - 9.01 | SRM Institute of Science and Technology, Chennai | 2021 - 2023</p>
-</div>
-<div class="card p-4 sm:p-6">
-<h3 class="text-lg sm:text-xl font-semibold text-blue-600">B.E. (Mechanical Engineering)</h3>
-                        <p class="text-gray-600 italic text-sm sm:text-base">CGPA - 7.0 | Panimalar Engineering College, Chennai | 2016 - 2020</p> [cite: 29]
-                        <p class="text-gray-600 italic text-sm sm:text-base">CGPA - 7.0 | Panimalar Engineering College, Chennai | 2016 - 2020</p>
-</div>
-<div class="card p-4 sm:p-6">
-<h3 class="text-lg sm:text-xl font-semibold text-blue-600">Certifications</h3>
-<ul class="list-disc list-inside mt-3 sm:mt-4 space-y-1 sm:space-y-2 text-gray-700 text-sm sm:text-base">
-                            <li>HubSpot Sales Software Certification [cite: 30]</li>
-                            <li>Salesforce CRM (Pursuing) - Salesforce [cite: 30]</li>
-                            <li>HubSpot Workflow Automation - HubSpot [cite: 30]</li>
-                            <li>Analyzing & Visualizing Data in Looker Google [cite: 30]</li>
-                            <li>IBM Data Fundamentals - IBM [cite: 30]</li>
-                            <li>MySQL Basics - Oracle [cite: 30]</li>
-                            <li>Zapier Automation Fundamentals - Zapier [cite: 30]</li>
-                            <li>Google Generative AI (LLM) & Basics of Prompt Design - Google [cite: 30]</li>
-                            <li>HubSpot Sales Software Certification</li>
-                            <li>Salesforce CRM (Pursuing) - Salesforce</li>
-                            <li>HubSpot Workflow Automation - HubSpot</li>
-                            <li>Analyzing & Visualizing Data in Looker Google</li>
-                            <li>IBM Data Fundamentals - IBM</li>
-                            <li>MySQL Basics - Oracle</li>
-                            <li>Zapier Automation Fundamentals - Zapier</li>
-                            <li>Google Generative AI (LLM) & Basics of Prompt Design - Google</li>
-<li>Agile Foundations - Project Management Institute (PMI), NASBA, IIBA</li>
-<li>Project Management Foundations - PMI</li>
-<li>Microsoft Projects Certification - PIM</li>
-@@ -503,11 +460,10 @@ <h2 class="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 section-title text-center
-<script>
-document.getElementById('currentYear').textContent = new Date().getFullYear();
+        navItems.forEach(item => {
+            const navDiv = document.createElement('div');
+            navDiv.id = `nav-${item.id}`; // Add a specific ID for easy targeting
+            navDiv.className = `nav-item flex items-center cursor-pointer p-2 rounded-lg transition-all duration-300 relative overflow-hidden text-gray-600 hover:text-indigo-700 hover:bg-gray-50 hover:scale-105`;
+            navDiv.onclick = () => scrollToSection(item.id);
 
-        const navLinksContainer = document.querySelector('nav .flex-wrap'); // Adjusted selector for flex container
-        const navLinksContainer = document.querySelector('nav .flex-nowrap'); // Adjusted selector for flex container
-const navLinks = document.querySelectorAll('.nav-link');
-const sections = document.querySelectorAll('main section');
-const navIndicator = document.getElementById('nav-indicator');
-        const mobileTopicDisplay = document.getElementById('current-topic-display');
-
-// Initial positions for morphing effect (run once)
-let heroProfilePicInitialRect, heroNameInitialRect;
-@@ -555,7 +511,7 @@ <h2 class="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 section-title text-center
-sections.forEach(section => {
-const sectionTop = section.offsetTop;
-// Offset by header height to account for sticky header covering section top
-                if (pageYOffset >= sectionTop - (headerHeight + 50)) { // Adjusted to use headerHeight
-                if (pageYOffset >= sectionTop - (headerHeight + 50)) {
-current = section.getAttribute('id');
-}
-});
-@@ -570,24 +526,14 @@ <h2 class="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 section-title text-center
-
-updateNavIndicator(activeNavLink);
-
-            // Update mobile topic pane
-            if (mobileTopicDisplay && activeNavLink) {
-                const topicText = activeNavLink.querySelector('.nav-text').textContent;
-                mobileTopicDisplay.textContent = topicText;
-            } else if (mobileTopicDisplay) {
-                // Default or clear if no active section found (e.g., at very top or bottom of page)
-                mobileTopicDisplay.textContent = 'About'; // Default to "About"
+            navDiv.innerHTML = `
+                ${getIconSvg(item.icon, 24, 'flex-shrink-0 transition-all duration-300 group-hover:scale-110')}
+                <span class="nav-text ml-2 text-sm font-medium"></span>
+            `;
+            // Append the label text after the span is created
+            const navTextSpan = navDiv.querySelector('.nav-text');
+            if (navTextSpan) {
+                navTextSpan.textContent = item.label;
             }
+            navLinksContainer.appendChild(navDiv);
+        });
+
+        // Function to smoothly scroll to a section
+        const scrollToSection = (id) => {
+            const element = document.getElementById(id);
+            if (element) {
+                const nav = document.querySelector('nav');
+                const offset = nav ? nav.offsetHeight : 0;
+                const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+                const offsetPosition = elementPosition - offset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        };
+
+        // Function to create section headers
+        const createSectionHeader = (id, iconName, title) => {
+            const header = document.createElement('h2');
+            header.id = id; // Add ID to the h2 for active section tracking
+            header.className = `text-3xl md:text-4xl font-extrabold text-gray-800 mb-8 flex items-center justify-center space-x-4 transition-all duration-700 ease-out transform opacity-0 translate-y-10`;
+            header.innerHTML = `${getIconSvg(iconName, 40, 'text-indigo-600')}<span>${title}</span>`;
+            return header;
+        };
+
+        // Dynamically create content sections
+        // Summary Section
+        const summarySection = document.createElement('section');
+        summarySection.id = 'summary';
+        summarySection.className = `mb-16 p-8 bg-white/80 rounded-2xl shadow-lg transition-all duration-700 ease-out transform opacity-0 translate-y-10`;
+        summarySection.appendChild(createSectionHeader('summary-header', 'User', 'About Me'));
+        summarySection.innerHTML += `<p class="text-lg md:text-xl text-gray-700 leading-relaxed text-center max-w-3xl mx-auto">${portfolioData.summary}</p>`;
+        mainContent.appendChild(summarySection);
+
+        // Skills Section
+        const skillsSection = document.createElement('section');
+        skillsSection.id = 'skills';
+        skillsSection.className = `mb-16 p-8 bg-white/80 rounded-2xl shadow-lg transition-all duration-700 ease-out transform opacity-0 translate-y-10`;
+        skillsSection.appendChild(createSectionHeader('skills-header', 'Settings', 'Technical Skills'));
+        const skillsGrid = document.createElement('div');
+        skillsGrid.className = 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8';
+        Object.entries(portfolioData.skills).forEach(([category, items], index) => {
+            const skillCard = document.createElement('div');
+            skillCard.className = 'bg-white/70 p-6 rounded-xl shadow-md border border-gray-200 hover:shadow-xl transform hover:-translate-y-1 transition duration-300 ease-in-out';
+            skillCard.style.animationDelay = `${index * 0.1}s`;
+            let skillsListHtml = items.map(item => `<li class="flex items-start"><span class="text-indigo-500 mr-2">•</span><span>${item}</span></li>`).join('');
+            skillCard.innerHTML = `
+                <h3 class="text-xl font-semibold text-gray-800 mb-4 flex items-center gap-3">
+                    ${getSkillIcon(category)}
+                    ${category}
+                </h3>
+                <ul class="list-disc list-inside text-gray-700 space-y-2">
+                    ${skillsListHtml}
+                </ul>
+            `;
+            skillsGrid.appendChild(skillCard);
+        });
+        skillsSection.appendChild(skillsGrid);
+        mainContent.appendChild(skillsSection);
+
+        // Experience Section
+        const experienceSection = document.createElement('section');
+        experienceSection.id = 'experience';
+        experienceSection.className = `mb-16 p-8 bg-white/80 rounded-2xl shadow-lg transition-all duration-700 ease-out transform opacity-0 translate-y-10`;
+        experienceSection.appendChild(createSectionHeader('experience-header', 'Briefcase', 'Experience'));
+        const experienceTimeline = document.createElement('div');
+        experienceTimeline.className = 'relative border-l-4 border-indigo-300 ml-4 md:ml-12';
+        portfolioData.experience.forEach((job, index) => {
+            const jobCard = document.createElement('div');
+            jobCard.className = 'mb-10 ml-8 md:ml-10 p-6 bg-white/70 rounded-xl shadow-md border border-gray-200 relative transform hover:scale-[1.01] transition duration-300 ease-in-out';
+            jobCard.style.animationDelay = `${index * 0.15}s`;
+            let detailsListHtml = job.details.map(detail => `<li class="flex items-start"><span class="text-indigo-500 mr-2">•</span><span>${detail}</span></li>`).join('');
+            jobCard.innerHTML = `
+                <div class="timeline-dot absolute"></div>
+                <h3 class="text-2xl font-bold text-gray-800 mb-1">${job.title}</h3>
+                <p class="text-xl font-semibold text-indigo-600 mb-2">${job.company}</p>
+                <p class="text-md text-gray-500 mb-4">${job.duration}</p>
+                <ul class="list-disc list-inside text-gray-700 space-y-2">
+                    ${detailsListHtml}
+                </ul>
+            `;
+            experienceTimeline.appendChild(jobCard);
+        });
+        experienceSection.appendChild(experienceTimeline);
+        mainContent.appendChild(experienceSection);
+
+        // Education Section
+        const educationSection = document.createElement('section');
+        educationSection.id = 'education';
+        educationSection.className = `mb-16 p-8 bg-white/80 rounded-2xl shadow-lg transition-all duration-700 ease-out transform opacity-0 translate-y-10`;
+        educationSection.appendChild(createSectionHeader('education-header', 'GraduationCap', 'Education'));
+        const educationGrid = document.createElement('div');
+        educationGrid.className = 'grid grid-cols-1 md:grid-cols-2 gap-8';
+        portfolioData.education.forEach((edu, index) => {
+            const eduCard = document.createElement('div');
+            eduCard.className = 'bg-white/70 p-6 rounded-xl shadow-md border border-gray-200 hover:shadow-xl transform hover:-translate-y-1 transition duration-300 ease-in-out';
+            eduCard.style.animationDelay = `${index * 0.1}s`;
+            eduCard.innerHTML = `
+                <h3 class="text-xl font-bold text-gray-800 mb-2">${edu.degree}</h3>
+                <p class="text-lg text-indigo-600 mb-1">${edu.institution}</p>
+                <p class="text-md text-gray-600 mb-1">CGPA: ${edu.cgpa}</p>
+                <p class="text-md text-gray-600">${edu.year}</p>
+            `;
+            educationGrid.appendChild(eduCard);
+        });
+        educationSection.appendChild(educationGrid);
+        mainContent.appendChild(educationSection);
+
+        // Certifications Section
+        const certificationsSection = document.createElement('section');
+        certificationsSection.id = 'certifications';
+        certificationsSection.className = `mb-16 p-8 bg-white/80 rounded-2xl shadow-lg transition-all duration-700 ease-out transform opacity-0 translate-y-10`;
+        certificationsSection.appendChild(createSectionHeader('certifications-header', 'Award', 'Certifications'));
+        const certificationsGrid = document.createElement('div');
+        certificationsGrid.className = 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8';
+        Object.entries(portfolioData.certifications).forEach(([category, items], index) => {
+            const certCard = document.createElement('div');
+            certCard.className = 'bg-white/70 p-6 rounded-xl shadow-md border border-gray-200 hover:shadow-xl transform hover:-translate-y-1 transition duration-300 ease-in-out';
+            certCard.style.animationDelay = `${index * 0.1}s`;
+            let certListHtml = items.map(item => `<li class="flex items-start"><span class="text-indigo-500 mr-2">•</span><span>${item}</span></li>`).join('');
+            certCard.innerHTML = `
+                <h3 class="text-xl font-semibold text-gray-800 mb-4 flex items-center gap-3">
+                    ${getCertificationIcon(category)}
+                    ${category}
+                </h3>
+                <ul class="list-disc list-inside text-gray-700 space-y-2">
+                    ${certListHtml}
+                </ul>
+            `;
+            certificationsGrid.appendChild(certCard);
+        });
+        certificationsSection.appendChild(certificationsGrid);
+        mainContent.appendChild(certificationsSection);
 
 
-// Morphing Header Logic
-const heroProfilePic = document.getElementById('hero-profile-pic');
-const heroName = document.getElementById('hero-name');
-const headerProfilePic = document.getElementById('header-profile-pic');
-            const headerNameContainer = document.getElementById('header-name-container'); // Changed to container
-            const headerNameText = document.getElementById('header-name-text');
-const aboutSection = document.getElementById('about');
+        // --- Scroll Logic and Active Section Highlighting ---
+        let activeSection = null;
+        const sections = document.querySelectorAll('main section');
+        const navElement = document.querySelector('nav');
+        const headerRefElement = document.getElementById('header-section');
 
-            if (heroProfilePic && heroName && headerProfilePic && headerNameContainer && aboutSection && heroProfilePicInitialRect) {
-            if (heroProfilePic && heroName && headerProfilePic && headerNameText && aboutSection && heroProfilePicInitialRect) {
-const scrollY = window.pageYOffset;
-// Define the scroll range over which the morphing effect happens
-const morphStart = aboutSection.offsetTop + (heroProfilePicInitialRect.height / 2); // Start when image center aligns with header top
-@@ -607,10 +553,10 @@ <h2 class="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 section-title text-center
-// Header elements appearing based on progress
-if (scrollProgress > 0.1) { // Start appearing slightly after hero elements start moving
-headerProfilePic.classList.add('show');
-                    headerNameContainer.classList.add('show'); // Changed to container
-                    headerNameText.classList.add('show');
-} else {
-headerProfilePic.classList.remove('show');
-                    headerNameContainer.classList.remove('show'); // Changed to container
-                    headerNameText.classList.remove('show');
-}
-}
+        const updateActiveSection = () => {
+            let currentActive = null;
+            const navHeight = navElement ? navElement.offsetHeight : 0;
+
+            sections.forEach(section => {
+                const sectionHeader = section.querySelector('h2'); // Target the actual header element inside the section
+                const sectionTop = sectionHeader.getBoundingClientRect().top;
+                const sectionBottom = section.getBoundingClientRect().bottom;
+
+                // If the section header is visible and relatively near the top of the viewport
+                if (sectionTop <= navHeight + window.innerHeight / 3 && sectionBottom >= navHeight + window.innerHeight / 3) {
+                    currentActive = section.id;
+                }
+
+                // Add/remove transition classes based on visibility
+                if (sectionTop < window.innerHeight * 0.75 && sectionBottom > 0) {
+                    section.classList.remove('opacity-0', 'translate-y-10');
+                    section.classList.add('opacity-100', 'translate-y-0');
+                    sectionHeader.classList.remove('opacity-0', 'translate-y-10'); // Apply to header too
+                    sectionHeader.classList.add('opacity-100', 'translate-y-0');
+                } else {
+                    section.classList.remove('opacity-100', 'translate-y-0');
+                    section.classList.add('opacity-0', 'translate-y-10');
+                    sectionHeader.classList.remove('opacity-100', 'translate-y-0');
+                    sectionHeader.classList.add('opacity-0', 'translate-y-10');
+                }
+            });
+
+            // Update active class on nav items
+            navItems.forEach(item => {
+                const navItemElement = document.getElementById(`nav-${item.id}`);
+                if (navItemElement) {
+                    if (item.id === currentActive) {
+                        navItemElement.classList.add('active');
+                    } else {
+                        navItemElement.classList.remove('active');
+                    }
+                }
+            });
+
+            // Mini-profile visibility
+            if (headerRefElement) {
+                const headerBottom = headerRefElement.getBoundingClientRect().bottom;
+                if (headerBottom < 0) {
+                    miniProfile.classList.remove('opacity-0', '-translate-x-full');
+                    miniProfile.classList.add('opacity-100', 'translate-x-0');
+                } else {
+                    miniProfile.classList.remove('opacity-100', 'translate-x-0');
+                    miniProfile.classList.add('opacity-0', '-translate-x-full');
+                }
+            }
+        };
+
+        window.addEventListener('scroll', updateActiveSection);
+        document.addEventListener('DOMContentLoaded', updateActiveSection); // Initial check on load
+    </script>
+</body>
+</html>
